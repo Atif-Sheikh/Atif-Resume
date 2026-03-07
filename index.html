@@ -1,189 +1,891 @@
 <!DOCTYPE html>
-<html>
-<title>Atif Resume</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./index.css" />
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
-<body class="w3-light-grey">
-
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
-
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="./assets/dev.png" style="width:100%" alt="Avatar">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2 style="color: #f9f9f9;">Atif Siddiqui</h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Developer | Freelancer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Karachi, Pakistan</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>atifsiddiquissg@gmail.com</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+92300-2410353</p>
-          <hr>
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>React.js</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-          </div>
-          <p>React-Native</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">
-              <div class="w3-center w3-text-white">90%</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Atif - Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f7971e;
+            --bg-light: #f8f9fa;
+            --bg-dark: #232946;
+            --text-dark: #232946;
+            --text-light: #fff;
+            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--card-shadow);
+            animation: fadeInDown 1s;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(102,126,234,0.1);
+            transition: color 0.3s;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s;
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            transition: right 0.3s ease-in-out;
+            padding: 80px 2rem 2rem;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .mobile-menu .nav-links {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .mobile-menu .nav-links a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .mobile-menu .nav-links a:hover {
+            color: var(--accent);
+            padding-left: 1rem;
+        }
+        .mobile-menu .nav-links a:after {
+            display: none;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            color: var(--text-light);
+            background: linear-gradient(120deg, var(--primary) 60%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            animation: fadeInUp 1.2s ease;
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            word-break: break-word;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s 0.5s both;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            padding: 16px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 24px rgba(102,126,234,0.15);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            animation: fadeInUp 1.2s 0.8s both;
+        }
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.04);
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            box-shadow: 0 8px 32px rgba(102,126,234,0.25);
+        }
+        .main-content {
+            background: var(--bg-light);
+            border-radius: 32px 32px 0 0;
+            margin-top: -32px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--card-shadow);
+        }
+        .section {
+            padding: 90px 0 70px;
+            position: relative;
+            animation: fadeInUp 1.2s;
+        }
+        .section-divider {
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.7;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.7rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(102,126,234,0.08);
+        }
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .profile-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            position: sticky;
+            top: 120px;
+            box-shadow: var(--card-shadow);
+            animation: fadeInLeft 1.2s;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 4px 24px rgba(102,126,234,0.15);
+            transition: transform 0.3s;
+        }
+        .profile-image:hover {
+            transform: scale(1.07) rotate(-2deg);
+        }
+        .profile-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .profile-title {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .contact-item i {
+            margin-right: 0.7rem;
+            width: 22px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: color 0.3s, transform 0.3s;
+        }
+        .contact-item:hover i {
+            color: var(--primary);
+            transform: scale(1.2) rotate(-10deg);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .skill-card {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 18px;
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            animation: fadeInUp 1.2s;
+        }
+        .skill-card:hover {
+            transform: translateY(-7px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(102,126,234,0.18);
+            border-color: var(--accent);
+        }
+        .skill-name {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .skill-bar {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+            transition: width 1.2s cubic-bezier(.77,0,.18,1);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+            animation: fadeInUp 1.2s;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.15);
+        }
+        .timeline-content {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--card-shadow);
+        }
+        .timeline-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-company {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-date {
+            color: #6c757d;
+            font-size: 0.98rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-description {
+            color: #666;
+        }
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .education-card {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.2s;
+        }
+        .education-card:hover {
+            transform: translateY(-7px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(102,126,234,0.18);
+        }
+        .education-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .education-card:hover .education-icon {
+            color: var(--accent);
+            transform: scale(1.2) rotate(-8deg);
+        }
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 0;
+            box-shadow: 0 -2px 24px rgba(102,126,234,0.08);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 12px rgba(102,126,234,0.12);
+            transition: transform 0.3s, background 0.3s;
+        }
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1) rotate(-5deg);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1001;
+            display: none;
+        }
+        .cookie-banner button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .cookie-banner button:hover {
+            background: var(--accent);
+            transform: scale(1.08);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 900px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+            }
+            .profile-card {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .section {
+                padding: 60px 0 40px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">Muhammad Atif</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-          </div>
-          <p>HTML5</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">
-              <div class="w3-center w3-text-white">90%</div>
-            </div>
-          </div>
-          <p>CSS3</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">
-              <div class="w3-center w3-text-white">90%</div>
-            </div>
-          </div>
-          <p>Firebase/Firebase Cloud Functions</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">
-              <div class="w3-center w3-text-white">90%</div>
-            </div>
-          </div>
-          <p>Node JS/Express JS</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
-          </div>
-          <p>GraphQL</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
-          </div>
-          <p>Docker</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
-          </div>
-          <p>Kubernetes</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
-          </div>
-          <br>
-
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:90%"></div>
-          </div>
-          <p>Urdu</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <!-- <p>German</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-          </div> -->
-          <br>
-        </div>
-      </div><br>
-
-    <!-- End Left Column -->
+        </nav>
+    </header>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </div>
-
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Lead Developer</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2018 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Senior Full Stack JavaScript Developer at Panacloud.</p>
-          <hr>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Full Stack JS Developer with 8+ Years Experience</h1>
+            <p>Building innovative web, mobile, and automation solutions for 8+ years</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>MERN Stack Developer</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2017 - Dec 2018</h6>
-          <p>Web developer with the stack of React JS and Express JS developer at Logico.</p>
-          <hr>
+    </section>
+    <main class="main-content">
+        <div class="container">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <div class="section-divider"></div>
+                <div class="profile-section">
+                    <div class="profile-card">
+                        <img src="./assets/profile.jpeg" alt="Muhammad Atif" class="profile-image">
+                        <h2 class="profile-name">Muhammad Atif</h2>
+                        <p class="profile-title">Full Stack JS Developer</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>North Karachi, Pakistan</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>atifsiddiquissg@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+923002410353</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <span>linkedin.com/in/muhammadatif007</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="section-title">About Me</h2>
+                        <p style="font-size: 1.15rem; line-height: 1.8; color: #444;">
+                            A passionate developer of <b>Web Apps, Web technologies, Hybrid Mobile Apps and Data Scraping</b> with a professional and progressive experience of <b>8+ years</b>. Having a brilliant track record of delivering the required tasks on time, I can work under pressure and find the optimum way out of even the most critical problems.
+                        </p>
+                        <p style="font-size: 1.15rem; line-height: 1.8; color: #444; margin-top: 1rem;">
+                            Self-motivated, quick learner, team player, quick analyzer, and a good problem solver with the ability to work under pressure and lead teams throughout projects efficiently. Able to plan, prioritize, and execute to meet deadlines efficiently.
+                        </p>
+                        <p style="font-size: 1.15rem; line-height: 1.8; color: #444; margin-top: 1rem;">
+                            <b>My expertise includes:</b><br>
+                            • Data Scraping<br>
+                            • Hybrid Mobile Applications Development<br>
+                            • Web Development Platforms and Technologies<br>
+                            • Enterprise Application Development
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">95%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">React.js</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">90%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">React Native</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">90%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Vue.js</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">85%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Ruby on Rails</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">85%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Node.js & Express.js</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">85%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Data Scraping</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">90%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">GraphQL</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">80%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Firebase</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">85%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Tailwind CSS</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">85%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">PugJS</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">80%</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Figma</div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                        <div style="text-align: right; margin-top: 0.5rem; color: var(--primary); font-weight: 700;">75%</div>
+                    </div>
+                </div>
+            </section>
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Work Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Full Stack JS Developer</h3>
+                            <div class="timeline-company">Crawlbase</div>
+                            <div class="timeline-date">June 2021 - Present (4 years 1 month)</div>
+                            <p class="timeline-description">
+                                As a Full Stack JS Developer, I've effectively delivered efficient, interactive, and user-focused frontend interfaces for our applications. My contributions include developing client-side logic using JavaScript, conducting code reviews for the frontend team, and collaborating with the team. I've successfully utilized technologies such as Vue.js, PugJS, Ruby on Rails, and Tailwind CSS in my projects.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">JavaScript Developer</h3>
+                            <div class="timeline-company">MeeW</div>
+                            <div class="timeline-date">October 2020 - August 2021 (11 months)</div>
+                            <p class="timeline-description">
+                                Expert ReactJS | React Native | GraphQL | Firebase Developer working on various client projects.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Expert ReactJS | React Native | GraphQL | Firebase Developer</h3>
+                            <div class="timeline-company">Upwork</div>
+                            <div class="timeline-date">January 2019 - May 2021 (2 years 5 months)</div>
+                            <p class="timeline-description">
+                                Freelance developer specializing in React ecosystem and Firebase development for international clients.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Level 2 Seller</h3>
+                            <div class="timeline-company">Fiverr</div>
+                            <div class="timeline-date">April 2017 - January 2021 (3 years 10 months)</div>
+                            <p class="timeline-description">
+                                Successfully delivered web and mobile development services as a Level 2 seller.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Full Stack JavaScript Developer</h3>
+                            <div class="timeline-company">Panacloud Pvt Ltd</div>
+                            <div class="timeline-date">November 2017 - November 2020 (3 years 1 month)</div>
+                            <p class="timeline-description">
+                                Full Stack JavaScript Developer specializing in React | React-Native | Node.js | Express development.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Junior React Native | ReactJS Developer</h3>
+                            <div class="timeline-company">Logico.io</div>
+                            <div class="timeline-date">July 2017 - October 2017 (4 months)</div>
+                            <p class="timeline-description">
+                                Junior developer working on React Native and ReactJS projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Federal Urdu University of Arts, Science & Technology, Islamabad</h3>
+                        <p>Bachelor's Degree</p>
+                        <small>January 2015 - January 2019</small>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Certified Web & Mobile Application Developer</h3>
+                        <p>Professional Certification</p>
+                        <small>Web & Mobile Development</small>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Computer Operator</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2013 - Aug 2017</h6>
-          <p>Computer operator with the basic knowledge of data entry ( Private organization ).</p><br>
+    </main>
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Feel free to reach out for collaborations or just a friendly hello</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/king.atif.52" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/m.atifsheikh/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/AtifSiddiqui55" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/muhammadatif007/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/atif-sheikh" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Muhammad Atif. All rights reserved.</p>
         </div>
-      </div>
-
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Federal Urdu University</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - Present</h6>
-          <p>Bachelor Of Science (I.R)</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-            <h5 class="w3-opacity"><b>Memon Federation</b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2018</h6>
-            <p>Web and mobile application development</p>
-            <hr>
-          </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Govt. Degree Boys College, Bufferzone</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2014</h6>
-          <p>Intermediate/Pre-Engineering</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Workers Model School</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2012</h6>
-          <p>Matriculation</p><br>
-        </div>
-
-        <div class="w3-container">
-            <h5 class="w3-opacity"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Github link</b></h5>
-            <p>https://github.com/atif-sheikh</p>
-            <hr>
-        </div>
-          
-      </div>
-
-    <!-- End Right Column -->
+    </footer>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to improve your experience. By using our website, you agree to our cookie policy.</p>
+        <button id="accept-cookies">Accept</button>
+        <button id="decline-cookies">Decline</button>
     </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-    <p>Find me on social media.</p>
-    <a href="https://www.facebook.com/king.atif.52">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    </a>
-    <a href="https://www.instagram.com/m.atifsheikh/">
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-    </a>
-    <a href="https://twitter.com/AtifSiddiqui55">
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/muhammad-atif-291794141/">
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </a>
-  <p>Powered by <a href="https://github.com/atif-sheikh" target="_blank">Atif-Sheikh</a></p>
-</footer>
-
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C0PN10WNY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+            const userConsent = localStorage.getItem('cookieConsent');
+            if (!userConsent) {
+                cookieBanner.style.display = 'block';
+            } else if (userConsent === 'accepted') {
+                initializeAnalytics();
+            }
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.style.display = 'none';
+                initializeAnalytics();
+            });
+            declineBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieBanner.style.display = 'none';
+            });
+            function initializeAnalytics() {
+                gtag('js', new Date());
+                gtag('config', 'G-8C0PN10WNY');
+            }
+        });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.skill-progress').forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            bar.setAttribute('data-width', width);
+            observer.observe(bar);
+        });
+        
+        // Mobile menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('overlay');
+        
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close mobile menu when clicking overlay
+        overlay.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
