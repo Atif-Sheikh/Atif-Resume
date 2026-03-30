@@ -22,7 +22,9 @@
     
     <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="assets/profile.jpeg">
     <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
     <div class="bg-gradient"></div>
@@ -38,6 +40,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="home.html">Resume</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -55,6 +58,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="home.html">Resume</a></li>
         </ul>
     </div>
 
@@ -361,6 +365,15 @@
         }, observerOptions);
 
         document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    </script>
+    <script type="module">
+        import { embedWidget } from "https://cdn.jsdelivr.net/npm/agent-embed-widget/dist/agent-embed-widget.es.js";
+
+        embedWidget({
+            type: "tray",
+            url: "https://console.thesys.dev/app/Cjv-fsVdqbHT2JCqC5nJr",
+            theme: "light", // "dark" or "light". this currently only affects the widget toggle button's appearance
+        });
     </script>
 </body>
 </html>
