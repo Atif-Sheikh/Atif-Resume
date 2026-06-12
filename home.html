@@ -1,52 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Atif Resume | Full Stack JS Developer</title>
+    <title>Atif Resume | Software Engineer</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Muhammad Atif is a Full Stack JS Developer with 8+ years of experience.">
+    <meta name="description" content="Detailed professional resume of Muhammad Atif, Software Engineer.">
     <link rel="canonical" href="https://atifsiddique.com/home.html">
     <meta name="robots" content="index, follow">
 
     <!-- OG Tags -->
-    <meta property="og:title" content="Atif Resume | Full Stack JS Developer">
-    <meta property="og:description" content="Detailed professional resume of Muhammad Atif, Full Stack JS Developer.">
+    <meta property="og:title" content="Atif Resume | Software Engineer">
+    <meta property="og:description" content="Detailed professional resume of Muhammad Atif, Software Engineer.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://atifsiddique.com/home.html">
     <meta property="og:image" content="https://atifsiddique.com/assets/profile.jpeg">
 
     <link rel="icon" type="image/jpeg" href="assets/profile.jpeg">
     <link rel="stylesheet" href="./index.css" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <style>
-        .progress-bar-container {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50px;
-            border: 1px solid var(--glass-border);
-            height: 24px;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
-        .progress-bar {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            height: 100%;
-            color: white;
-            text-align: center;
-            font-size: 12px;
-            line-height: 22px;
-            font-weight: 600;
-            border-radius: 50px;
-        }
-        .section-resume {
-            padding: 8rem 0 4rem 0;
-        }
-    </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <div class="bg-pattern"></div>
+    <div class="noise-overlay"></div>
 
     <!-- Header -->
     <header class="header" id="header">
@@ -56,7 +30,7 @@
                 <li><a href="index.html">Portfolio</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#experience">Experience</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#projects">Work</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -72,157 +46,160 @@
             <li><a href="index.html">Portfolio</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#projects">Work</a></li>
         </ul>
     </div>
 
     <main class="section-resume container">
-        <div class="profile-grid">
-            <!-- Left Column -->
-            <div class="glass-card" data-aos style="text-align: center; align-self: start;">
-                <div class="profile-img-container" style="margin: 0 auto 2rem auto; width: 100%; max-width: 250px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 2px solid var(--glass-border);">
-                    <img src="./assets/dev.png" alt="Atif Siddiqui" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h2 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Atif Siddiqui</h2>
-                <p style="color: var(--accent); margin-bottom: 1.5rem; font-weight: 600;"><i class="fas fa-briefcase" style="margin-right: 8px;"></i>Developer | Freelancer</p>
-                
-                <div style="text-align: left; margin-bottom: 2rem; color: var(--text-muted);">
-                    <p style="margin-bottom: 0.75rem; display: flex; align-items: center;"><i class="fas fa-home" style="width: 25px; color: var(--primary);"></i>Karachi, Pakistan</p>
-                    <p style="margin-bottom: 0.75rem; display: flex; align-items: center;"><i class="fas fa-envelope" style="width: 25px; color: var(--primary);"></i>atifsiddiquissg@gmail.com</p>
-                    <p style="margin-bottom: 0.75rem; display: flex; align-items: center;"><i class="fas fa-phone" style="width: 25px; color: var(--primary);"></i>+92300-2410353</p>
-                </div>
-                
-                <hr style="border-color: var(--glass-border); margin: 2rem 0; opacity: 0.5;">
-                
-                <!-- Skills -->
-                <h3 style="text-align: left; margin-bottom: 1.5rem; font-family: var(--font-heading);"><i class="fas fa-asterisk" style="color: var(--primary); margin-right: 10px;"></i>Skills</h3>
-                
-                <div class="skill-progress">
-                    <p style="text-align: left; margin-bottom: 0.5rem; color: var(--text-white);">React.js</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;">90%</div></div>
+        <div class="resume-grid">
+            <!-- Left Column: Sidebar -->
+            <div class="resume-sidebar">
+                <div class="editorial-panel" data-aos style="text-align: left;">
+                    <div style="margin-bottom: 2rem; width: 100%; border: 1px solid var(--border);">
+                        <img src="./assets/dev.png" alt="Atif Siddiqui" style="width: 100%; height: auto; filter: grayscale(100%); display: block;">
+                    </div>
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: -0.05em;">Atif Siddiqui</h2>
+                    <p class="resume-role">Software Engineer</p>
                     
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">React-Native</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;">90%</div></div>
+                    <div class="resume-contact-block">
+                        <div class="contact-item"><i class="fas fa-home"></i> Karachi, Pakistan</div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i> atifsiddiquissg@gmail.com</div>
+                        <div class="contact-item"><i class="fas fa-phone"></i> +92300-2410353</div>
+                    </div>
                     
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">HTML5</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;">90%</div></div>
+                    <hr style="border-color: var(--border); margin: 2.5rem 0;">
                     
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">CSS3</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;">90%</div></div>
+                    <!-- Skills -->
+                    <h3 style="text-align: left; margin-bottom: 2rem; font-family: var(--font-heading); text-transform: uppercase;">Technical Skills</h3>
                     
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">Firebase / Cloud Functions</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;">90%</div></div>
-                    
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">Node JS / Express JS</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;">80%</div></div>
-                    
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">GraphQL</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;">70%</div></div>
+                    <div class="resume-skill-group">
+                        <div class="resume-skill-label"><span>React.js</span> <span>90%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 90%;"></div></div>
+                        
+                        <div class="resume-skill-label"><span>React-Native</span> <span>90%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 90%;"></div></div>
+                        
+                        <div class="resume-skill-label"><span>HTML5 / CSS3</span> <span>90%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 90%;"></div></div>
+                        
+                        <div class="resume-skill-label"><span>Firebase / GCP</span> <span>90%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 90%;"></div></div>
+                        
+                        <div class="resume-skill-label"><span>Node JS / Express</span> <span>80%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 80%;"></div></div>
+                        
+                        <div class="resume-skill-label"><span>GraphQL</span> <span>70%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 70%;"></div></div>
 
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">Docker</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;">70%</div></div>
+                        <div class="resume-skill-label"><span>Docker</span> <span>70%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 70%;"></div></div>
 
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">Kubernetes</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;">70%</div></div>
-                </div>
-                
-                <hr style="border-color: var(--glass-border); margin: 2rem 0; opacity: 0.5;">
-
-                <h3 style="text-align: left; margin-bottom: 1.5rem; font-family: var(--font-heading);"><i class="fas fa-globe" style="color: var(--primary); margin-right: 10px;"></i>Languages</h3>
-                
-                <div class="skill-progress">
-                    <p style="text-align: left; margin-bottom: 0.5rem; color: var(--text-white);">English</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 90%; color: transparent;"></div></div>
+                        <div class="resume-skill-label"><span>Kubernetes</span> <span>70%</span></div>
+                        <div class="resume-progress-line"><div class="resume-progress-fill" style="width: 70%;"></div></div>
+                    </div>
                     
-                    <p style="text-align: left; margin-bottom: 0.5rem; margin-top: 1rem; color: var(--text-white);">Urdu</p>
-                    <div class="progress-bar-container"><div class="progress-bar" style="width: 100%; color: transparent;"></div></div>
+                    <hr style="border-color: var(--border); margin: 2.5rem 0;">
+
+                    <h3 style="text-align: left; margin-bottom: 2rem; font-family: var(--font-heading); text-transform: uppercase;">Languages</h3>
+                    
+                    <div class="resume-skill-group">
+                        <div class="resume-skill-label"><span>English</span> <span>Professional</span></div>
+                        <div class="resume-skill-label" style="margin-top: 1rem;"><span>Urdu</span> <span>Native</span></div>
+                    </div>
                 </div>
             </div>
 
             <!-- Right Column -->
-            <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 4rem;">
+                
                 <!-- Experience -->
-                <div class="glass-card" data-aos>
-                    <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;">
-                        <i class="fas fa-suitcase" style="color: var(--primary); font-size: 2rem;"></i> Work Experience
-                    </h2>
+                <div class="editorial-panel" data-aos>
+                    <div class="section-title-wrapper" style="margin-bottom: 3rem;">
+                        <span class="section-subtitle">Professional Path</span>
+                        <h2 style="font-family: var(--font-heading); font-size: 2.5rem; text-transform: uppercase;">Work Experience</h2>
+                    </div>
                     
-                    <div class="timeline" style="margin-top: 1rem;">
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem;">
-                            <div class="timeline-date">Jan 2018 - <span style="background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 8px;">Current</span></div>
+                    <div class="timeline">
+                        <div class="timeline-item" style="grid-template-columns: 200px 1fr; gap: 2rem; border-top: none;">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">Jan 2018 — Current</span>
+                                <span class="timeline-company" style="color: var(--primary);">Panacloud</span>
+                            </div>
                             <div class="timeline-content">
-                                <h3>Lead Developer</h3>
-                                <span class="timeline-company" style="color: var(--text-muted); font-weight: 500;">Panacloud</span>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.5rem;">Senior Full Stack JavaScript Developer at Panacloud.</p>
+                                <h3 style="font-size: 1.5rem;">Lead Developer</h3>
+                                <p class="timeline-desc">Senior Full Stack JavaScript Developer at Panacloud. Architecting scalable environments and team integration processes.</p>
                             </div>
                         </div>
                         
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem; margin-top: 1rem;">
-                            <div class="timeline-date">Sep 2017 - Dec 2018</div>
+                        <div class="timeline-item" style="grid-template-columns: 200px 1fr; gap: 2rem;">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">Sep 2017 — Dec 2018</span>
+                                <span class="timeline-company" style="color: var(--primary);">Logico</span>
+                            </div>
                             <div class="timeline-content">
-                                <h3>MERN Stack Developer</h3>
-                                <span class="timeline-company" style="color: var(--text-muted); font-weight: 500;">Logico</span>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.5rem;">Web developer with the stack of React JS and Express JS at Logico.</p>
+                                <h3 style="font-size: 1.5rem;">MERN Stack Developer</h3>
+                                <p class="timeline-desc">Engineered robust single-page applications. Handled end-to-end development integrations using the React JS and Express ecosystem.</p>
                             </div>
                         </div>
                         
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem; margin-top: 1rem;">
-                            <div class="timeline-date">Jun 2013 - Aug 2017</div>
+                        <div class="timeline-item" style="grid-template-columns: 200px 1fr; gap: 2rem;">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">Jun 2013 — Aug 2017</span>
+                                <span class="timeline-company" style="color: var(--primary);">Private Org</span>
+                            </div>
                             <div class="timeline-content">
-                                <h3>Computer Operator</h3>
-                                <span class="timeline-company" style="color: var(--text-muted); font-weight: 500;">Private Organization</span>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.5rem;">Computer operator with the basic knowledge of data entry.</p>
+                                <h3 style="font-size: 1.5rem;">Data Operations Specialist</h3>
+                                <p class="timeline-desc">Formulated critical data pathways and optimized data processing methodologies.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Education -->
-                <div class="glass-card" data-aos>
-                    <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;">
-                        <i class="fas fa-certificate" style="color: var(--primary); font-size: 2rem;"></i> Education
-                    </h2>
+                <div class="editorial-panel" data-aos>
+                    <div class="section-title-wrapper" style="margin-bottom: 3rem;">
+                        <span class="section-subtitle">Academic Background</span>
+                        <h2 style="font-family: var(--font-heading); font-size: 2.5rem; text-transform: uppercase;">Education</h2>
+                    </div>
                     
-                    <div class="timeline" style="margin-top: 1rem;">
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem;">
-                            <div class="timeline-date">2016 - 2019</div>
+                    <div class="timeline">
+                        <div class="timeline-item" style="grid-template-columns: 200px 1fr; gap: 2rem; border-top: none;">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">2016 — 2019</span>
+                            </div>
                             <div class="timeline-content">
-                                <h3>Federal Urdu University</h3>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.25rem;">Bachelor's Degree</p>
+                                <h3 style="font-size: 1.5rem;">Federal Urdu University</h3>
+                                <p class="timeline-desc" style="color: var(--primary); font-weight: 600;">Bachelor's Degree</p>
                             </div>
                         </div>
                         
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem; margin-top: 1rem;">
-                            <div class="timeline-date">2016 - 2018</div>
+                        <div class="timeline-item" style="grid-template-columns: 200px 1fr; gap: 2rem;">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">2016 — 2018</span>
+                            </div>
                             <div class="timeline-content">
-                                <h3>Memon Federation</h3>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.25rem;">Web and mobile application development</p>
+                                <h3 style="font-size: 1.5rem;">Memon Federation</h3>
+                                <p class="timeline-desc" style="color: var(--primary); font-weight: 600;">Web & Mobile Application Development</p>
                             </div>
                         </div>
                         
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem; margin-top: 1rem;">
-                            <div class="timeline-date">2014</div>
-                            <div class="timeline-content">
-                                <h3>Govt. Degree Boys College, Bufferzone</h3>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.25rem;">Intermediate / Pre-Engineering</p>
+                        <div class="timeline-item" style="grid-template-columns: 200px 1fr; gap: 2rem;">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">2014</span>
                             </div>
-                        </div>
-                        
-                        <div class="timeline-item" style="grid-template-columns: 180px 1fr; gap: 1.5rem; margin-top: 1rem;">
-                            <div class="timeline-date">2012</div>
                             <div class="timeline-content">
-                                <h3>Workers Model School</h3>
-                                <p class="timeline-desc" style="color: var(--text-white); margin-top: 0.25rem;">Matriculation</p>
+                                <h3 style="font-size: 1.5rem;">Govt. Degree Boys College</h3>
+                                <p class="timeline-desc" style="color: var(--primary); font-weight: 600;">Intermediate / Pre-Engineering</p>
                             </div>
                         </div>
                     </div>
                     
-                    <hr style="border-color: var(--glass-border); margin: 2rem 0; opacity: 0.5;">
+                    <hr style="border-color: var(--border); margin: 3rem 0;">
                     
-                    <h3 style="font-family: var(--font-heading); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <i class="fas fa-link" style="color: var(--primary);"></i> Github
-                    </h3>
-                    <p><a href="https://github.com/atif-sheikh" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem;">github.com/atif-sheikh <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></a></p>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <h3 style="font-family: var(--font-heading); text-transform: uppercase;">Github Profile</h3>
+                        <a href="https://github.com/atif-sheikh" target="_blank" class="btn btn-outline" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">View Github <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -230,34 +207,35 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <a href="index.html" class="logo">M.<span>ATIF</span></a>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Find me on social media.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">M.<span>ATIF</span></a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/atif-sheikh" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/muhammad-atif-291794141/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/AtifSiddiqui55" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/atif-sheikh" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/muhammad-atif-291794141/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/AtifSiddiqui55" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/m.atifsheikh/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/king.atif.52" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Muhammad Atif. Engineering the future.</p>
+                <div style="font-family: var(--font-heading); font-weight: 700; color: var(--primary);">007</div>
             </div>
-        </div>
-        <div class="container" style="margin-top: 3rem; text-align: center; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
-            <p style="color: var(--text-muted);">Powered by <a href="https://github.com/atif-sheikh" style="color: var(--accent); text-decoration: none;">Atif-Sheikh</a> &copy; 2025</p>
         </div>
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1.5rem; border-radius: 16px; z-index: 2000; display: none; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">We use cookies to improve your experience. By using our website, you agree to our cookie policy.</p>
-        <div style="display: flex; gap: 1rem;">
-            <button id="accept-cookies" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.85rem;">Accept</button>
-            <button id="decline-cookies" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.85rem;">Decline</button>
+    <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; padding: 2rem; z-index: 2000; display: none; align-items: center; justify-content: space-between; gap: 2rem;">
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">We use minimal tracking to measure portfolio performance.</p>
+        <div style="display: flex; gap: 1rem; flex-shrink: 0;">
+            <button id="accept-cookies" class="btn btn-primary" style="padding: 0.75rem 2rem;">Accept</button>
+            <button id="decline-cookies" class="btn btn-outline" style="padding: 0.75rem 2rem;">Decline</button>
         </div>
     </div>
 
-    <!-- Google Analytics -->
+    <!-- Scripts -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C0PN10WNY"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -291,11 +269,8 @@
                 gtag('config', 'G-8C0PN10WNY');
             }
         });
-    </script>
 
-    <!-- Scripts -->
-    <script>
-        // Header Scroll Effect
+        // Header Scroll
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -308,12 +283,9 @@
         // Mobile Menu
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
-        
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
-            
-            // Hamburger animation
             const spans = hamburger.getElementsByTagName('span');
             if(mobileMenu.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
@@ -325,7 +297,7 @@
                 spans[2].style.transform = 'none';
             }
         });
-
+        
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
@@ -337,11 +309,10 @@
             });
         });
 
-        // Basic AOS implementation (Custom)
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -349,7 +320,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
     </script>
 </body>

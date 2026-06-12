@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Atif | Full Stack JS Developer</title>
-    
+
     <!-- Meta Tags -->
     <meta name="description" content="Muhammad Atif is a Full Stack JS Developer with 8+ years of experience in React, Node.js, Ruby on Rails, and Data Scraping.">
     <meta name="keywords" content="Muhammad Atif, Full Stack Developer, React Developer, Node.js, Web Scraper, Data Scraping, Ruby on Rails">
     <meta name="author" content="Muhammad Atif">
-    
+
     <!-- OG Tags -->
     <meta property="og:title" content="Muhammad Atif | Full Stack JS Developer">
     <meta property="og:description" content="Building innovative web, mobile, and automation solutions for 8+ years.">
@@ -19,254 +19,439 @@
     <link rel="canonical" href="https://atifsiddique.com/">
     <meta name="robots" content="index, follow">
 
-    
-    <!-- Icons & Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/jpeg" href="assets/profile.jpeg">
-    <link rel="stylesheet" href="index.css">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Atif",
+        "url": "https://atifsiddique.com/",
+        "image": "https://atifsiddique.com/assets/profile.jpeg",
+        "jobTitle": "Full Stack JS Developer",
+        "worksFor": { "@type": "Organization", "name": "Crawlbase" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK" },
+        "email": "mailto:atifsiddiquissg@gmail.com",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Federal Urdu University" },
+        "knowsAbout": ["React", "React Native", "Vue.js", "Node.js", "Ruby on Rails", "GraphQL", "Firebase", "Docker", "Kubernetes", "Web Scraping"],
+        "sameAs": [
+            "https://github.com/atif-sheikh",
+            "https://linkedin.com/in/muhammadatif007",
+            "https://twitter.com/AtifSiddiqui55",
+            "https://instagram.com/m.atifsheikh/",
+            "https://www.facebook.com/king.atif.52"
+        ]
+    }
+    </script>
 
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="assets/profile.jpeg">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <div class="bg-pattern"></div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <span class="preloader-logo">MA<em>.</em></span>
+            <span class="preloader-count" id="preloaderCount">0</span>
+        </div>
+    </div>
+
+    <!-- Atmosphere -->
+    <div class="grain" aria-hidden="true"></div>
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
     <!-- Header -->
     <header class="header" id="header">
+        <div class="scroll-progress" id="scrollProgress"></div>
         <nav class="nav container">
-            <a href="#" class="logo">M.<span>ATIF</span></a>
+            <a href="#" class="logo" data-magnetic>MA<em>.</em></a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="home.html">Resume</a></li>
+                <li><a href="#projects" class="nav-link">Work</a></li>
+                <li><a href="#skills" class="nav-link">Services</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="home.html" class="nav-link">Résumé</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <a href="mailto:atifsiddiquissg@gmail.com" class="nav-cta" data-magnetic>Let's Talk <i class="fas fa-arrow-right"></i></a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
         </nav>
     </header>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul class="mobile-nav">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="home.html">Resume</a></li>
+            <li style="--i:0"><a href="#projects">Work</a></li>
+            <li style="--i:1"><a href="#skills">Services</a></li>
+            <li style="--i:2"><a href="#experience">Experience</a></li>
+            <li style="--i:3"><a href="#education">Education</a></li>
+            <li style="--i:4"><a href="#contact">Contact</a></li>
+            <li style="--i:5"><a href="home.html">Résumé</a></li>
         </ul>
+        <div class="mobile-menu-footer">
+            <a href="mailto:atifsiddiquissg@gmail.com">atifsiddiquissg@gmail.com</a>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero container">
-        <div class="hero-content" data-aos>
-            <span class="hero-badge"><i class="fas fa-sparkles"></i> Available for new projects</span>
-            <h1>Full Stack <span>JS Expert</span> & Automation Engineer</h1>
-            <p>I build high-performance web applications, hybrid mobile solutions, and sophisticated data scraping systems with 8+ years of industry experience.</p>
-            <div class="hero-btns">
-                <a href="#experience" class="btn btn-primary">My Work <i class="fas fa-arrow-right"></i></a>
-                <a href="mailto:atifsiddiquissg@gmail.com" class="btn btn-outline">Let's Talk <i class="fas fa-envelope"></i></a>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <canvas id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero-inner container">
+            <div class="hero-content">
+                <p class="hero-eyebrow"><span class="eyebrow-line"></span>Full Stack JS Developer — Karachi, PK</p>
+                <h1 class="hero-name" aria-label="Muhammad Atif">
+                    <span class="hero-name-line outline" data-split>MUHAMMAD</span>
+                    <span class="hero-name-line filled" data-split>ATIF<em>.</em></span>
+                </h1>
+                <div class="hero-roles" aria-hidden="true">
+                    <span class="hero-roles-static">I build with</span>
+                    <span class="hero-roles-rotator">
+                        <span class="role active">React &amp; React Native</span>
+                        <span class="role">Node.js &amp; Rails</span>
+                        <span class="role">Vue.js interfaces</span>
+                        <span class="role">data extraction at scale</span>
+                    </span>
+                </div>
+                <p class="hero-tagline">Turning ideas into scalable products — web, mobile and automation solutions engineered for the real world.</p>
+                <div class="hero-btns">
+                    <a href="mailto:atifsiddiquissg@gmail.com" class="btn btn-primary" data-magnetic>Let's work together <i class="fas fa-arrow-right"></i></a>
+                    <a href="#projects" class="btn btn-ghost" data-magnetic>See my work</a>
+                </div>
             </div>
+            <div class="hero-portrait">
+                <div class="portrait-frame">
+                    <img src="./assets/profile.jpeg" alt="Muhammad Atif - Full Stack JS Developer">
+                    <div class="portrait-ring" aria-hidden="true"></div>
+                </div>
+                <div class="portrait-badge badge-exp"><strong>8+</strong> years shipping</div>
+                <div class="portrait-badge badge-loc"><i class="fas fa-location-dot"></i> Karachi, PK</div>
+            </div>
+        </div>
+        <div class="hero-stats container">
+            <div class="stat">
+                <span class="stat-num"><span data-count="8">0</span>+</span>
+                <span class="stat-label">Years of experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num"><span data-count="3">0</span></span>
+                <span class="stat-label">Companies, one craft</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num"><span data-count="12">0</span>+</span>
+                <span class="stat-label">Technologies mastered</span>
+            </div>
+            <a class="scroll-hint" href="#projects" aria-label="Scroll to projects">
+                <span class="scroll-hint-track"><span class="scroll-hint-dot"></span></span>
+                scroll
+            </a>
         </div>
     </section>
 
+    <!-- Tech Marquee -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>React</span><i>✦</i><span>Node.js</span><i>✦</i><span>Vue.js</span><i>✦</i><span>React Native</span><i>✦</i><span>Ruby on Rails</span><i>✦</i><span>GraphQL</span><i>✦</i><span>Firebase</span><i>✦</i><span>Docker</span><i>✦</i><span>Kubernetes</span><i>✦</i><span>Puppeteer</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Tailwind</span><i>✦</i>
+            <span>React</span><i>✦</i><span>Node.js</span><i>✦</i><span>Vue.js</span><i>✦</i><span>React Native</span><i>✦</i><span>Ruby on Rails</span><i>✦</i><span>GraphQL</span><i>✦</i><span>Firebase</span><i>✦</i><span>Docker</span><i>✦</i><span>Kubernetes</span><i>✦</i><span>Puppeteer</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Tailwind</span><i>✦</i>
+        </div>
+    </div>
+
     <main>
-        <!-- About Section -->
-        <section id="about" class="section container">
-            <h2 class="section-title" data-aos>About Me</h2>
-            <div class="profile-grid">
-                <div class="profile-img-container" data-aos>
-                    <img src="./assets/profile.jpeg" alt="Muhammad Atif" class="profile-img">
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="section-no">01</span>
+                    <div>
+                        <p class="section-label">// Selected Work</p>
+                        <h2 class="section-title">Projects <em>I've built</em></h2>
+                    </div>
                 </div>
-                <div class="glass-card" data-aos>
-                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
-                        A passionate developer of <span style="color: var(--accent); font-weight: 600;">Web Apps, Hybrid Mobile Apps, and Data Scraping</span> with over <span style="color: var(--accent); font-weight: 600;">8 years</span> of professional experience. 
-                    </p>
-                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
-                        I have a proven track record of delivering complex tasks on time, finding optimum solutions for critical problems, and leading teams through project lifecycles efficiently.
-                    </p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div>
-                            <strong style="display: block; color:white; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Location</strong>
-                            <p style="color: var(--text-muted);">Karachi, Pakistan</p>
+                <div class="projects-grid">
+                    <article class="project-card" data-tilt data-reveal>
+                        <div class="project-visual visual-crawlbase">
+                            <div class="visual-servers" aria-hidden="true">
+                                <div class="server-unit"><span class="led"></span><span class="slot"></span><span class="slot"></span></div>
+                                <div class="server-unit"><span class="led"></span><span class="slot"></span><span class="slot"></span></div>
+                                <div class="server-unit"><span class="led"></span><span class="slot"></span><span class="slot"></span></div>
+                            </div>
                         </div>
-                        <div>
-                            <strong style="display: block; color:white; margin-bottom: 0.5rem;"><i class="fas fa-certificate" style="color: var(--primary);"></i> Specialization</strong>
-                            <p style="color: var(--text-muted);">Full Stack JS & Automation</p>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-icon"><i class="fas fa-server"></i></span>
+                                <h3>Crawlbase</h3>
+                            </div>
+                            <p>Scalable backend architecture for large-scale data extraction and processing, serving millions of requests daily.</p>
+                            <div class="project-tags">
+                                <span>Node.js</span><span>Vue.js</span><span>Cloud</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-tilt data-reveal>
+                        <div class="project-visual visual-mobile">
+                            <div class="visual-phone" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-icon"><i class="fas fa-mobile-alt"></i></span>
+                                <h3>Mobile Solution</h3>
+                            </div>
+                            <p>Cross-platform mobile application with real-time sync, offline capabilities, and cloud functions integration.</p>
+                            <div class="project-tags">
+                                <span>React Native</span><span>Firebase</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-tilt data-reveal>
+                        <div class="project-visual visual-scraper">
+                            <div class="visual-grid" aria-hidden="true"></div>
+                            <i class="fas fa-spider visual-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-icon"><i class="fas fa-spider"></i></span>
+                                <h3>Intelligent Scraper</h3>
+                            </div>
+                            <p>High-performance data scraping engine designed to bypass anti-bot systems and extract unstructured data at scale.</p>
+                            <div class="project-tags">
+                                <span>Python/JS</span><span>Puppeteer</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-tilt data-reveal>
+                        <div class="project-visual visual-analytics">
+                            <div class="visual-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="project-icon"><i class="fas fa-chart-line"></i></span>
+                                <h3>Analytics Dashboard</h3>
+                            </div>
+                            <p>Real-time analytics platform with interactive charts, custom reports, and automated data pipeline processing.</p>
+                            <div class="project-tags">
+                                <span>React</span><span>GraphQL</span><span>D3.js</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="section-no">02</span>
+                    <div>
+                        <p class="section-label">// Services</p>
+                        <h2 class="section-title">What <em>I do</em></h2>
+                    </div>
+                </div>
+                <div class="services">
+                    <div class="service-row" data-reveal>
+                        <span class="service-index">01</span>
+                        <div class="service-main">
+                            <h3>Full Stack Development</h3>
+                            <p>End-to-end web applications with modern architectures, REST &amp; GraphQL APIs, and production-grade deployment.</p>
+                        </div>
+                        <div class="service-techs"><span>React</span><span>Node.js</span><span>Vue.js</span><span>Ruby on Rails</span></div>
+                        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="service-row" data-reveal>
+                        <span class="service-index">02</span>
+                        <div class="service-main">
+                            <h3>Mobile App Development</h3>
+                            <p>Cross-platform mobile applications with native performance, real-time sync, push notifications, and offline support.</p>
+                        </div>
+                        <div class="service-techs"><span>React Native</span><span>Firebase</span></div>
+                        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="service-row" data-reveal>
+                        <span class="service-index">03</span>
+                        <div class="service-main">
+                            <h3>Data Scraping &amp; Automation</h3>
+                            <p>Sophisticated web scraping systems that bypass anti-bot protections and extract structured data at massive scale.</p>
+                        </div>
+                        <div class="service-techs"><span>Puppeteer</span><span>Python</span><span>Node.js</span></div>
+                        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="service-row" data-reveal>
+                        <span class="service-index">04</span>
+                        <div class="service-main">
+                            <h3>Frontend Engineering</h3>
+                            <p>Pixel-perfect, responsive interfaces with smooth animations, component systems, and performance optimization.</p>
+                        </div>
+                        <div class="service-techs"><span>React</span><span>Tailwind</span><span>GraphQL</span></div>
+                        <span class="service-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="section-no">03</span>
+                    <div>
+                        <p class="section-label">// Journey</p>
+                        <h2 class="section-title">Where <em>I've worked</em></h2>
+                    </div>
+                </div>
+                <div class="timeline" id="timeline">
+                    <div class="timeline-line" aria-hidden="true"><span id="timelineProgress"></span></div>
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Jun 2021 — Present</span>
+                            <span class="timeline-duration">5 yrs · UAE</span>
+                            <span class="timeline-company">Crawlbase</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Full Stack JS Developer</h3>
+                            <p>Delivering interactive and user-focused frontend interfaces for enterprise applications. Specializing in Vue.js, PugJS, Ruby on Rails, Tailwind CSS, and sophisticated data extraction logic.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Oct 2020 — Aug 2021</span>
+                            <span class="timeline-duration">11 mos · Denmark</span>
+                            <span class="timeline-company">MeeW</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>JavaScript Developer</h3>
+                            <p>Architected and developed high-scale web applications using the React ecosystem, GraphQL, and Firebase.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Nov 2017 — Nov 2020</span>
+                            <span class="timeline-duration">3 yrs 1 mo · Pakistan</span>
+                            <span class="timeline-company">Panacloud Pvt Ltd</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Full Stack JS Developer</h3>
+                            <p>Full Stack JavaScript Developer working across React, React Native, Node.js, and Express for enterprise-grade solutions.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section container">
-            <h2 class="section-title" data-aos>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-tag" data-aos>
-                    <i class="fab fa-js"></i>
-                    JavaScript
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fab fa-react"></i>
-                    React.js
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fab fa-node-js"></i>
-                    Node.js
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fab fa-vuejs"></i>
-                    Vue.js
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fas fa-mobile-alt"></i>
-                    React Native
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fas fa-gem"></i>
-                    Ruby on Rails
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fas fa-project-diagram"></i>
-                    GraphQL
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fas fa-spider"></i>
-                    Data Scraping
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fas fa-fire"></i>
-                    Firebase
-                </div>
-                <div class="skill-tag" data-aos>
-                    <i class="fab fa-css3-alt"></i>
-                    Tailwind CSS
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section container">
-            <h2 class="section-title" data-aos>Professional Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos>
-                    <div class="timeline-date">Jun 2021 - Present</div>
-                    <div class="glass-card timeline-content">
-                        <h3>Full Stack JS Developer</h3>
-                        <span class="timeline-company">Crawlbase</span>
-                        <p class="timeline-desc">Delivering interactive and user-focused frontend interfaces for enterprise applications. Specializing in Vue.js, Ruby on Rails, and sophisticated data extraction logic.</p>
+                <!-- Freelance platforms -->
+                <div class="freelance" data-reveal>
+                    <div class="freelance-head">
+                        <span class="eyebrow-line"></span>
+                        <p class="freelance-label">8+ years freelancing — trusted on Upwork &amp; Fiverr</p>
                     </div>
-                </div>
-                <div class="timeline-item" data-aos>
-                    <div class="timeline-date">Oct 2020 - Aug 2021</div>
-                    <div class="glass-card timeline-content">
-                        <h3>JavaScript Developer</h3>
-                        <span class="timeline-company">MeeW</span>
-                        <p class="timeline-desc">Architected and developed high-scale web applications using the React ecosystem, GraphQL, and Firebase.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos>
-                    <div class="timeline-date">Nov 2017 - Nov 2020</div>
-                    <div class="glass-card timeline-content">
-                        <h3>Full Stack JS Developer</h3>
-                        <span class="timeline-company">Panacloud Pvt Ltd</span>
-                        <p class="timeline-desc">Specialized in React, React Native, and Node.js development for enterprise-grade solutions.</p>
+                    <div class="freelance-grid">
+                        <a href="https://www.upwork.com/freelancers/~01e5b356a9c3a67e23" target="_blank" rel="noopener" class="freelance-card freelance-card--upwork" data-tilt>
+                            <div class="freelance-top">
+                                <span class="freelance-logo freelance-logo--upwork">up</span>
+                                <span class="freelance-years"><strong>2</strong> yrs 5 mos</span>
+                            </div>
+                            <h3>Upwork</h3>
+                            <p class="freelance-role">Expert ReactJS · React Native · GraphQL · Firebase Developer</p>
+                            <div class="freelance-foot">
+                                <span class="freelance-date">Jan 2019 — May 2021</span>
+                                <span class="freelance-link">View profile <i class="fas fa-arrow-up-right-from-square"></i></span>
+                            </div>
+                        </a>
+                        <a href="https://www.fiverr.com/atifengrr" target="_blank" rel="noopener" class="freelance-card freelance-card--fiverr" data-tilt>
+                            <div class="freelance-top">
+                                <span class="freelance-logo freelance-logo--fiverr">fi<em>.</em></span>
+                                <span class="freelance-years"><strong>3</strong> yrs 10 mos</span>
+                            </div>
+                            <h3>Fiverr</h3>
+                            <p class="freelance-role">Level 2 Seller — Web, Mobile &amp; Data Scraping</p>
+                            <div class="freelance-foot">
+                                <span class="freelance-date">Apr 2017 — Jan 2021</span>
+                                <span class="freelance-link">View profile <i class="fas fa-arrow-up-right-from-square"></i></span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section container">
-            <h2 class="section-title" data-aos>Selected Highlights</h2>
-            <div class="projects-grid">
-                <div class="glass-card project-card" data-aos>
-                    <img src="./assets/dev.png" alt="Crawlbase Automation" class="project-img" style="filter: brightness(0.8);">
-                    <div class="project-tags">
-                        <span class="project-tag">Node.js</span>
-                        <span class="project-tag">Vue.js</span>
-                        <span class="project-tag">Cloud</span>
+        <!-- Education -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="section-no">04</span>
+                    <div>
+                        <p class="section-label">// Education</p>
+                        <h2 class="section-title">Academic <em>background</em></h2>
                     </div>
-                    <h3 class="project-title">Crawlbase Infrastructure</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Scalable backend architecture for large-scale data extraction and processing, serving millions of requests daily.</p>
                 </div>
-                <div class="glass-card project-card" data-aos>
-                    <div style="height: 240px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 16px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-mobile-alt" style="font-size: 4rem; opacity: 0.3;"></i>
+                <div class="edu-grid">
+                    <div class="edu-card" data-reveal>
+                        <i class="fas fa-university edu-icon"></i>
+                        <h3>Bachelor's Degree</h3>
+                        <p>Federal Urdu University</p>
+                        <span class="edu-year">2015 — 2019</span>
                     </div>
-                    <div class="project-tags">
-                        <span class="project-tag">React Native</span>
-                        <span class="project-tag">Firebase</span>
+                    <div class="edu-card" data-reveal>
+                        <i class="fas fa-certificate edu-icon"></i>
+                        <h3>Professional Certification</h3>
+                        <p>Certified Web &amp; Mobile Developer</p>
+                        <span class="edu-year">Advanced Full Stack</span>
                     </div>
-                    <h3 class="project-title">Global Mobile Solution</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Cross-platform mobile application with real-time sync, offline capabilities, and cloud functions integration.</p>
-                </div>
-                <div class="glass-card project-card" data-aos>
-                    <div style="height: 240px; background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%); border-radius: 16px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-spider" style="font-size: 4rem; opacity: 0.3;"></i>
-                    </div>
-                    <div class="project-tags">
-                        <span class="project-tag">Python/JS</span>
-                        <span class="project-tag">Puppeteer</span>
-                    </div>
-                    <h3 class="project-title">Intelligent Scraper</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">High-performance data scraping engine designed to bypass anti-bot systems and extract unstructured data at scale.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section container">
-            <h2 class="section-title" data-aos>Education</h2>
-            <div class="edu-grid">
-                <div class="glass-card" data-aos>
-                    <i class="fas fa-university" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem;">Bachelor's Degree</h3>
-                    <p style="color:white; font-weight: 600;">Federal Urdu University</p>
-                    <p style="color: var(--text-muted);">2015 - 2019</p>
-                </div>
-                <div class="glass-card" data-aos>
-                    <i class="fas fa-certificate" style="font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem;">Professional Certification</h3>
-                    <p style="color:white; font-weight: 600;">Certified Web & Mobile Developer</p>
-                    <p style="color: var(--text-muted);">Advanced Full Stack Development</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <a href="#" class="logo">M.<span>ATIF</span></a>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Building the future of web and automation.</p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/atif-sheikh" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/muhammadatif007" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/AtifSiddiqui55" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/m.atifsheikh/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/king.atif.52" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <p class="section-label" data-reveal>// Get in touch</p>
+            <h2 class="contact-title" data-reveal>Let's build<br><em>something.</em></h2>
+            <p class="contact-sub" data-reveal>Have a project in mind? Need a developer? Let's talk.</p>
+            <div class="contact-email" data-reveal>
+                <a href="mailto:atifsiddiquissg@gmail.com" class="contact-email-link" data-magnetic>atifsiddiquissg@gmail.com</a>
+                <button class="copy-btn" id="copyEmail" data-magnetic aria-label="Copy email address">
+                    <i class="far fa-copy"></i><span class="copy-tip">Copy</span>
+                </button>
             </div>
         </div>
-        <div class="container" style="margin-top: 3rem; text-align: center; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
-            <p style="color: var(--text-muted);">&copy; 2025 Muhammad Atif. All rights reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="#" class="logo">MA<em>.</em></a>
+            <div class="social-links">
+                <a href="https://github.com/atif-sheikh" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/muhammadatif007" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/AtifSiddiqui55" target="_blank" rel="noopener" class="social-link" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/m.atifsheikh/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/king.atif.52" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Muhammad Atif. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1.5rem; border-radius: 16px; z-index: 2000; display: none; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">We use cookies to improve your experience. By using our website, you agree to our cookie policy.</p>
-        <div style="display: flex; gap: 1rem;">
-            <button id="accept-cookies" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.85rem;">Accept</button>
-            <button id="decline-cookies" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.85rem;">Decline</button>
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use cookies to improve your experience. By using our website, you agree to our cookie policy.</p>
+        <div class="cookie-actions">
+            <button id="accept-cookies" class="btn btn-primary btn-sm">Accept</button>
+            <button id="decline-cookies" class="btn btn-ghost btn-sm">Decline</button>
         </div>
     </div>
 
@@ -275,30 +460,30 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        
+
         document.addEventListener('DOMContentLoaded', function() {
             const cookieBanner = document.getElementById('cookie-banner');
             const acceptBtn = document.getElementById('accept-cookies');
             const declineBtn = document.getElementById('decline-cookies');
             const userConsent = localStorage.getItem('cookieConsent');
-            
+
             if (!userConsent) {
-                cookieBanner.style.display = 'flex';
+                cookieBanner.classList.add('visible');
             } else if (userConsent === 'accepted') {
                 initializeAnalytics();
             }
-            
+
             acceptBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'accepted');
-                cookieBanner.style.display = 'none';
+                cookieBanner.classList.remove('visible');
                 initializeAnalytics();
             });
-            
+
             declineBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'declined');
-                cookieBanner.style.display = 'none';
+                cookieBanner.classList.remove('visible');
             });
-            
+
             function initializeAnalytics() {
                 gtag('js', new Date());
                 gtag('config', 'G-8C0PN10WNY');
@@ -306,73 +491,19 @@
         });
     </script>
 
-    <!-- Scripts -->
-    <script>
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    <!-- Motion libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="portfolio.js"></script>
 
-        // Mobile Menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            
-            // Hamburger animation
-            const spans = hamburger.getElementsByTagName('span');
-            if(mobileMenu.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                const spans = hamburger.getElementsByTagName('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            });
-        });
-
-        // Basic AOS implementation (Custom)
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('aos-animate');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
-    </script>
     <script type="module">
         import { embedWidget } from "https://cdn.jsdelivr.net/npm/agent-embed-widget/dist/agent-embed-widget.es.js";
 
         embedWidget({
             type: "tray",
             url: "https://console.thesys.dev/app/Cjv-fsVdqbHT2JCqC5nJr",
-            theme: "light", // "dark" or "light". this currently only affects the widget toggle button's appearance
+            theme: "light",
         });
     </script>
 </body>
