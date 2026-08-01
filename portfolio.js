@@ -14,38 +14,6 @@
     var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
     /* ----------------------------------
-       Preloader
-    ---------------------------------- */
-    var preloader = $('#preloader');
-    var preloaderCount = $('#preloaderCount');
-    var preloaderDone = false;
-
-    function finishPreloader() {
-        if (!preloader || preloaderDone) return;
-        preloaderDone = true;
-        preloader.classList.add('done');
-        setTimeout(function () { preloader.remove(); }, 900);
-        startHeroIntro();
-    }
-
-    setTimeout(finishPreloader, 3500); // hard ceiling — overlay can never stick
-
-    if (reducedMotion || !preloader) {
-        if (preloader) preloader.remove();
-        startHeroIntro();
-    } else {
-        var progress = 0;
-        var tick = setInterval(function () {
-            progress = Math.min(100, progress + Math.ceil(Math.random() * 16));
-            if (preloaderCount) preloaderCount.textContent = progress;
-            if (progress >= 100) {
-                clearInterval(tick);
-                setTimeout(finishPreloader, 200);
-            }
-        }, 60);
-    }
-
-    /* ----------------------------------
        Hero name split + intro (CSS transitions, no library)
     ---------------------------------- */
     $$('[data-split]').forEach(function (el) {
@@ -88,6 +56,8 @@
             document.body.classList.add('hero-in');
         });
     }
+
+    startHeroIntro();
 
     /* ----------------------------------
        Rotating hero roles

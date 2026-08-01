@@ -101,36 +101,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ==========================
-   PRELOADER
-   ========================== */
-
-.preloader.done { transform: translateY(-100%); }
-
-.preloader-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.preloader-logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 3rem;
-    letter-spacing: -0.03em;
-}
-
-.preloader-logo em { color: var(--accent); }
-
-.preloader-count {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--text-dim);
-}
-
-.preloader-count::after { content: '%'; }
-
-/* ==========================
    CUSTOM CURSOR
    ========================== */
 .cursor-dot, .cursor-ring {
@@ -1791,7 +1761,6 @@ button { font-family: inherit; cursor: pointer; }
 
     [data-reveal] { opacity: 1; transform: none; }
     .hero-name-line .char { transform: none; }
-    .preloader { display: none; }
     .cursor-dot, .cursor-ring { display: none !important; }
     #heroCanvas { display: none; }
     .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
