@@ -1,6 +1,6 @@
 /* ==========================================================
    ATIF — PORTFOLIO 2026
-   Dark immersive · Clash Display / Satoshi / JetBrains Mono
+   Dark immersive · Clash Display / Satoshi · zero dependencies
    ========================================================== */
 
 :root {
@@ -16,9 +16,9 @@
     --line: rgba(242, 239, 234, 0.08);
     --line-strong: rgba(242, 239, 234, 0.16);
 
-    --font-display: 'Clash Display', sans-serif;
-    --font-body: 'Satoshi', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Clash Display', Georgia, serif;
+    --font-body: 'Satoshi', system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --t-fast: 0.3s var(--ease-out);
@@ -28,9 +28,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
-
-/* Lenis takes over scrolling; native smooth-behavior fights it and stutters */
-html.lenis { scroll-behavior: auto; }
 
 body {
     background: var(--bg);
@@ -106,16 +103,6 @@ button { font-family: inherit; cursor: pointer; }
 /* ==========================
    PRELOADER
    ========================== */
-.preloader {
-    position: fixed;
-    inset: 0;
-    background: var(--bg);
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.8s var(--ease-out);
-}
 
 .preloader.done { transform: translateY(-100%); }
 
@@ -409,10 +396,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .hero-name-line { display: block; overflow: hidden; white-space: nowrap; }
 
-.hero-name-line .char {
-    display: inline-block;
-    transform: translateY(110%);
-}
+.hero-name-line .char { display: inline-block; }
 
 .hero-name-line.outline {
     color: transparent;
@@ -719,16 +703,202 @@ button { font-family: inherit; cursor: pointer; }
 
 .section-title em { color: var(--text-faint); }
 
-/* Reveal base state (JS adds .revealed; no-JS stays visible via fallback below) */
-[data-reveal] {
+/* Reveal base state. Gated behind .js so content is NEVER hidden when
+   JavaScript is unavailable, fails, or a crawler stops short of running it. */
+.js [data-reveal] {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
 }
 
-[data-reveal].revealed { opacity: 1; transform: none; }
+.js [data-reveal].revealed { opacity: 1; transform: none; }
 
-.no-motion [data-reveal] { opacity: 1; transform: none; transition: none; }
+
+/* ==========================
+   ABOUT / PHILOSOPHY
+   ========================== */
+.section-about { padding-top: 9rem; }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-statement {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3.6vw, 3rem);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+}
+
+.about-statement em {
+    background: linear-gradient(100deg, var(--accent), var(--accent-soft));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.about-body p {
+    color: var(--text-dim);
+    margin-bottom: 1.2rem;
+    max-width: 52ch;
+}
+
+.about-expertise {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 1.8rem;
+}
+
+.about-expertise li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg-card);
+    transition: var(--t-fast);
+}
+
+.about-expertise li:hover {
+    border-color: rgba(255, 107, 43, 0.4);
+    transform: translateY(-3px);
+}
+
+.about-expertise i { color: var(--accent); }
+
+/* ==========================
+   IMPACT / STATS BAND
+   ========================== */
+.impact {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-elevated);
+    position: relative;
+    z-index: 2;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.impact-item {
+    padding: 3.4rem 1.5rem;
+    text-align: center;
+    border-right: 1px solid var(--line);
+    transition: background var(--t-fast);
+}
+
+.impact-item:last-child { border-right: none; }
+.impact-item:hover { background: rgba(255, 107, 43, 0.04); }
+
+.impact-num {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    background: linear-gradient(180deg, var(--text), var(--accent-soft));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: 0.6rem;
+}
+
+.impact-label {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-dim);
+}
+
+/* ==========================
+   TECH STACK GRID
+   ========================== */
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
+.stack-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 2rem 1rem 1.6rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.4s var(--ease-out), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.stack-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 130%; height: 100%;
+    background: radial-gradient(circle, rgba(255, 107, 43, 0.16), transparent 65%);
+    opacity: 0;
+    transition: opacity var(--t-fast);
+    pointer-events: none;
+}
+
+.stack-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 107, 43, 0.4);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.stack-card:hover::before { opacity: 1; }
+
+.stack-card > i {
+    font-size: 2.3rem;
+    color: var(--text-dim);
+    transition: color var(--t-fast), transform 0.4s var(--ease-out);
+}
+
+.stack-card:hover > i { color: var(--accent-soft); transform: scale(1.12); }
+
+.stack-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.stack-lvl {
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--line-strong);
+    overflow: hidden;
+}
+
+.stack-lvl i {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+    transition: width 1s var(--ease-out);
+}
+
+.stack-card.revealed .stack-lvl i { width: calc(var(--lvl) * 1%); }
 
 /* ==========================
    PROJECTS
@@ -1564,6 +1734,9 @@ button { font-family: inherit; cursor: pointer; }
     .service-row { grid-template-columns: 50px 1fr 60px; }
     .service-techs { grid-column: 2; justify-content: flex-start; margin-top: 0.8rem; }
     .service-arrow { grid-row: 1; grid-column: 3; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stack-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1579,6 +1752,12 @@ button { font-family: inherit; cursor: pointer; }
     .projects-grid { grid-template-columns: 1fr; }
     .edu-grid { grid-template-columns: 1fr; }
     .freelance-grid { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .impact-item:nth-child(2) { border-right: none; }
+    .impact-item:nth-child(1), .impact-item:nth-child(2) { border-bottom: 1px solid var(--line); }
+    .about-expertise { grid-template-columns: 1fr; }
+    .section-about { padding-top: 5.5rem; }
 
     .section { padding: 5.5rem 0 1.5rem; }
     .section-head { gap: 1.2rem; margin-bottom: 3rem; }
@@ -1616,4 +1795,94 @@ button { font-family: inherit; cursor: pointer; }
     .cursor-dot, .cursor-ring { display: none !important; }
     #heroCanvas { display: none; }
     .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+}
+
+/* ==========================
+   INLINE SVG ICONS
+   Replaces the Font Awesome webfont (253 KB) with a same-document
+   sprite. Icons scale off font-size exactly like the old <i> tags.
+   ========================== */
+.ico {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.125em;
+    flex: none;
+}
+
+.nav-cta .ico { font-size: 0.75rem; transition: transform var(--t-fast); }
+.nav-cta:hover .ico { transform: translateX(4px); }
+
+.btn .ico { font-size: 0.8rem; transition: transform var(--t-fast); }
+.btn-primary:hover .ico { transform: translateX(4px); }
+
+.portrait-badge .ico { color: var(--accent); font-size: 0.9rem; }
+
+.about-expertise .ico { color: var(--accent); font-size: 1rem; }
+
+.project-icon .ico { font-size: 1rem; }
+
+.visual-scraper .visual-icon {
+    font-size: 4rem;
+    color: rgba(255, 107, 43, 0.45);
+    position: relative;
+    transition: transform 0.6s var(--ease-out), color var(--t-fast);
+}
+
+.project-card:hover .visual-scraper .visual-icon {
+    transform: translateY(-8px) scale(1.1);
+    color: rgba(255, 107, 43, 0.8);
+}
+
+.stack-card > .ico {
+    font-size: 2.3rem;
+    color: var(--text-dim);
+    transition: color var(--t-fast), transform 0.4s var(--ease-out);
+}
+
+.stack-card:hover > .ico { color: var(--accent-soft); transform: scale(1.12); }
+
+.service-arrow .ico { font-size: 0.95rem; }
+
+.freelance-link .ico { font-size: 0.72rem; transition: transform var(--t-fast); }
+.freelance-card:hover .freelance-link .ico { transform: translate(3px, -3px); }
+
+.edu-icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 1.2rem; }
+
+.social-link .ico { font-size: 0.95rem; }
+
+.copy-btn .ico { font-size: 1rem; }
+
+/* ==========================
+   CHAT LAUNCHER
+   The 288 KB widget is only fetched when this is clicked.
+   ========================== */
+.chat-fab {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: #14080a;
+    background: linear-gradient(100deg, var(--accent), var(--accent-soft));
+    box-shadow: 0 8px 28px var(--accent-glow);
+    transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.chat-fab:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 36px var(--accent-glow); }
+.chat-fab:active { transform: scale(0.96); }
+.chat-fab.loading { opacity: 0.6; pointer-events: none; }
+.chat-fab.loading .ico { animation: fab-spin 0.8s linear infinite; }
+
+@keyframes fab-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+    .chat-fab { right: 1rem; bottom: 1rem; width: 50px; height: 50px; font-size: 1.2rem; }
 }
