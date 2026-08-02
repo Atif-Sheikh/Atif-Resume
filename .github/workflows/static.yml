@@ -47,6 +47,12 @@ jobs:
         with:
           # next.config.mjs sets output:'export', which writes the whole site here
           path: './out'
+          # Re-running a workflow keeps the previous attempt's artifact, so a
+          # second upload under the default name "github-pages" leaves two and
+          # deploy-pages aborts. Scoping the name to the attempt keeps them apart.
+          name: github-pages-${{ github.run_attempt }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
