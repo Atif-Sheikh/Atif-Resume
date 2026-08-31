@@ -155,6 +155,9 @@ const JSON_LD = {
             url: `${SITE}/`,
             name: 'Muhammad Atif — Senior Full Stack JavaScript Developer',
             isPartOf: { '@id': `${SITE}/#website` },
+            // ProfilePage requires mainEntity (the subject). `about` alone
+            // isn't enough — Google flags "Missing field mainEntity".
+            mainEntity: { '@id': `${SITE}/#person` },
             about: { '@id': `${SITE}/#person` },
             inLanguage: 'en',
         },
