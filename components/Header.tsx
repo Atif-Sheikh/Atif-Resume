@@ -8,6 +8,7 @@ const NAV = [
     { href: '#projects', label: 'Work' },
     { href: '#stack', label: 'Stack' },
     { href: '#experience', label: 'Experience' },
+    { href: '#reviews', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
     { href: '/home.html', label: 'Résumé' },
 ];
@@ -19,6 +20,7 @@ const MOBILE_NAV = [
     { href: '#skills', label: 'Services' },
     { href: '#experience', label: 'Experience' },
     { href: '#education', label: 'Education' },
+    { href: '#reviews', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
     { href: '/home.html', label: 'Résumé' },
 ];

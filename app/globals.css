@@ -1753,9 +1753,164 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .cookie-actions { display: flex; gap: 0.8rem; flex-shrink: 0; }
 
 /* ==========================
+   REVIEWS
+   ========================== */
+.reviews-summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.reviews-score { display: flex; align-items: center; gap: 1.2rem; }
+
+.reviews-avg {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3.5rem, 7vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.reviews-score p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-dim); max-width: 16rem; }
+
+.review-stars { display: inline-flex; gap: 3px; }
+.review-stars svg { width: 15px; height: 15px; fill: var(--line-strong); }
+.review-stars svg.on { fill: var(--accent-soft); }
+
+.reviews-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.reviews-stats div { display: flex; flex-direction: column-reverse; gap: 0.3rem; }
+.reviews-stats dd {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.9rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+.reviews-stats dt {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.reviews-verify svg { width: 14px; height: 14px; }
+
+.reviews-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 2.5rem 0 1.6rem; }
+
+.reviews-filter {
+    position: relative;
+    min-height: 44px;
+    padding: 0 1.2rem;
+    border-radius: 100px;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    transition: color var(--t-fast), border-color var(--t-fast);
+}
+.reviews-filter:hover { color: var(--text); border-color: var(--accent); }
+.reviews-filter[aria-pressed='true'] { color: var(--bg); border-color: transparent; }
+.reviews-filter-label { position: relative; z-index: 1; }
+.reviews-filter small { font-size: inherit; opacity: 0.65; margin-left: 0.3rem; }
+.reviews-pill { position: absolute; inset: 0; border-radius: inherit; background: var(--accent); }
+
+.reviews-grid {
+    /* popLayout absolutely positions exiting cards against this. */
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: 1.25rem;
+}
+
+.review-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 1.6rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.review-card:hover {
+    border-color: rgba(255, 107, 43, 0.35);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 40px rgba(255, 107, 43, 0.06);
+}
+/* min-height = the tag's height, so cards without a tag start their text level. */
+.review-top { display: flex; align-items: center; gap: 0.6rem; min-height: 1.5rem; }
+.review-rating { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); }
+
+/* Cards stretch to the row height; the quote takes the slack so the author
+   and footer line up across every card in the row. */
+.review-card blockquote { flex: 1; }
+.review-card blockquote p { font-size: 1rem; line-height: 1.65; }
+
+.review-card figcaption { display: flex; align-items: center; gap: 0.75rem; }
+
+.review-avatar {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    color: var(--bg);
+    font-family: var(--font-display);
+    font-weight: 600;
+    object-fit: cover;
+    /* Ring separates dark photos from the card. */
+    box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 3px rgba(255, 107, 43, 0.35);
+}
+
+.review-who { display: flex; flex-direction: column; min-width: 0; }
+.review-who strong { font-size: 0.92rem; overflow-wrap: anywhere; }
+.review-who span { font-size: 0.8rem; color: var(--text-dim); }
+
+.review-badge {
+    margin-left: auto;
+    flex: none;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 107, 43, 0.4);
+    color: var(--accent-soft);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.review-tag {
+    margin-left: auto;
+    padding: 0.3rem 0.65rem;
+    border-radius: 100px;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1;
+    color: var(--text-dim);
+}
+
+.reviews-more { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2.5rem; }
+.reviews-more p { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); }
+
+/* ==========================
    RESPONSIVE
    ========================== */
 @media (max-width: 1024px) {
+    .reviews-summary { grid-template-columns: 1fr; gap: 2rem; }
+    .reviews-verify { justify-self: start; }
     .hero-inner { grid-template-columns: 1fr; gap: 4rem; }
     .hero-portrait { justify-self: start; margin-left: 1rem; }
     .portrait-frame { width: min(300px, 70vw); }
@@ -1787,6 +1942,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     .freelance-grid { grid-template-columns: 1fr; }
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
     .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-stats { grid-template-columns: repeat(2, 1fr); }
     .impact-item:nth-child(2) { border-right: none; }
     .impact-item:nth-child(1), .impact-item:nth-child(2) { border-bottom: 1px solid var(--line); }
     .about-expertise { grid-template-columns: 1fr; }

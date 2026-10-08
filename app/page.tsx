@@ -10,6 +10,7 @@ import Hero from '@/components/Hero';
 import Impact from '@/components/Impact';
 import Marquee from '@/components/Marquee';
 import Projects from '@/components/Projects';
+import Reviews from '@/components/Reviews';
 import Services from '@/components/Services';
 import SiteEffects from '@/components/SiteEffects';
 import Stack from '@/components/Stack';
@@ -40,6 +41,7 @@ export default function Page() {
                 <Services />
                 <Experience />
                 <Education />
+                <Reviews />
                 <Contact />
             </main>
 
