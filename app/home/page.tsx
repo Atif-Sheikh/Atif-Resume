@@ -3,7 +3,7 @@ import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
 import PrintButton from '@/components/PrintButton';
 import REVIEWS from '@/data/fiverr-reviews.json';
-import { CONTACT, EDUCATION, EXPERIENCE, FOCUS, HEADLINE, LANGUAGES, PROJECTS, SKILLS, SUMMARY } from '@/data/resume';
+import { CONTACT, EDUCATION, EXPERIENCE, FOCUS, HEADLINE, LANGUAGES, PROJECTS, SKILLS, SUMMARY, UPWORK } from '@/data/resume';
 import { SITE } from '@/lib/site';
 
 // Static export writes this route to out/home.html, so the indexed URL
@@ -121,7 +121,8 @@ export default function Resume() {
                                                     ))}
                                                     {j.reviews && (
                                                         <li>
-                                                            Rated {average} out of 5 across{' '}
+                                                            Rated {UPWORK.rating} on all {UPWORK.jobs} Upwork jobs and{' '}
+                                                            {average} across{' '}
                                                             <a href="/#reviews">{REVIEWS.length} Fiverr client reviews</a>.
                                                         </li>
                                                     )}

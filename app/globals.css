@@ -1483,6 +1483,16 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     font-size: 0.95rem;
 }
 
+.freelance-record {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.freelance-record svg { width: 14px; height: 14px; fill: var(--accent-soft); flex: none; }
+
 .freelance-foot {
     display: flex;
     align-items: center;

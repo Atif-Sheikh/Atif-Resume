@@ -67,15 +67,19 @@ export const EXPERIENCE = [
         role: 'Freelance Frontend Developer',
         company: 'Upwork & Fiverr',
         location: 'Remote',
-        date: 'Apr 2017 - Jan 2021',
+        // The PDF ends this at Jan 2021, but the last Upwork job closed Apr 17, 2021.
+        date: 'Apr 2017 - Apr 2021',
         bullets: [
             'Delivered 25+ React.js, React Native, and GraphQL projects for international clients across the US, Europe, and the Middle East.',
             'Owned the full frontend lifecycle from requirements to deployment, earning repeat engagements through quality and reliability.',
         ],
-        // Adds the live Fiverr rating line, computed from data/fiverr-reviews.json.
+        // Adds the rating line: Upwork from UPWORK below, Fiverr computed from data/fiverr-reviews.json.
         reviews: true,
     },
 ];
+
+// From the Upwork profile's completed jobs (Mar - Apr 2021), every one rated 5.0.
+export const UPWORK = { jobs: 5, rating: '5.0' };
 
 export const PROJECTS = [
     {
