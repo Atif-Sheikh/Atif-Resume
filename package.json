@@ -7,11 +7,12 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && mv out/blog.html out/blog/index.html",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
     "framer-motion": "^12.43.0",
+    "marked": "^18.1.0",
     "next": "^15.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

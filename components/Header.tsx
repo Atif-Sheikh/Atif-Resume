@@ -10,6 +10,7 @@ const NAV = [
     { href: '#experience', label: 'Experience' },
     { href: '#reviews', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
+    { href: '/blog/', label: 'Blog' },
     { href: '/home.html', label: 'Résumé' },
 ];
 
@@ -22,6 +23,7 @@ const MOBILE_NAV = [
     { href: '#education', label: 'Education' },
     { href: '#reviews', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
+    { href: '/blog/', label: 'Blog' },
     { href: '/home.html', label: 'Résumé' },
 ];
 
