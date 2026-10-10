@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
-import PrintButton from '@/components/PrintButton';
 import REVIEWS from '@/data/fiverr-reviews.json';
 import { CONTACT, EDUCATION, EXPERIENCE, FOCUS, HEADLINE, LANGUAGES, PROJECTS, SKILLS, SUMMARY, UPWORK } from '@/data/resume';
 import { SITE } from '@/lib/site';
@@ -55,7 +54,9 @@ export default function Resume() {
                         <a href={`mailto:${CONTACT.email}`} className="btn btn-ghost btn-sm">
                             Email me
                         </a>
-                        <PrintButton />
+                        <a href="/Muhammad_Atif_Resume.pdf" download className="btn btn-primary btn-sm">
+                            Download résumé
+                        </a>
                     </nav>
                 </div>
             </header>
