@@ -83,6 +83,15 @@ export default async function BlogPost({ params }: Props) {
                         </p>
                     </header>
 
+                    <img
+                        className="blog-cover post-cover"
+                        src={`/og/${post.slug}.png`}
+                        alt={`Cover image for ${post.title}`}
+                        width={1200}
+                        height={630}
+                        fetchPriority="high"
+                    />
+
                     {/* Rendered from our own Markdown in content/blog at build time. */}
                     <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
 

@@ -60,23 +60,34 @@ export default function Blog() {
                     {posts.map((p) => (
                         <li key={p.slug}>
                             <article className="blog-card">
-                                <p className="blog-meta">
-                                    <time dateTime={p.date}>{formatDate(p.date)}</time>
-                                    <span>{p.minutes} min read</span>
-                                </p>
-                                <h2>
-                                    {/* The link's ::after covers the whole card, so the card
-                                        is one click target without nesting block content in <a>. */}
-                                    <a href={`/blog/${p.slug}`}>{p.title}</a>
-                                </h2>
-                                <p className="blog-card-desc">{p.description}</p>
-                                {p.tags.length > 0 && (
-                                    <ul className="blog-tags" aria-label="Topics">
-                                        {p.tags.map((t) => (
-                                            <li key={t}>{t}</li>
-                                        ))}
-                                    </ul>
-                                )}
+                                <img
+                                    className="blog-cover"
+                                    src={`/og/${p.slug}.png`}
+                                    alt={`Cover image for ${p.title}`}
+                                    width={1200}
+                                    height={630}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <div className="blog-card-body">
+                                    <p className="blog-meta">
+                                        <time dateTime={p.date}>{formatDate(p.date)}</time>
+                                        <span>{p.minutes} min read</span>
+                                    </p>
+                                    <h2>
+                                        {/* The link's ::after covers the whole card, so the card
+                                            is one click target without nesting block content in <a>. */}
+                                        <a href={`/blog/${p.slug}`}>{p.title}</a>
+                                    </h2>
+                                    <p className="blog-card-desc">{p.description}</p>
+                                    {p.tags.length > 0 && (
+                                        <ul className="blog-tags" aria-label="Topics">
+                                            {p.tags.map((t) => (
+                                                <li key={t}>{t}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
                             </article>
                         </li>
                     ))}
