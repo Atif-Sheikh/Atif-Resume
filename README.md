@@ -1,2 +1,2 @@
 # Atif-Resume
-Deployed: Atif-resume.surge.sh
+Deployed: [atifsiddique.com](https://atifsiddique.com)
