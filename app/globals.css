@@ -400,6 +400,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .hero-eyebrow {
     font-family: var(--font-mono);
     font-size: 0.85rem;
+    font-weight: 400;
     color: var(--accent-soft);
     display: flex;
     align-items: center;
@@ -415,6 +416,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 
 .hero-name {
+    display: block;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: clamp(3rem, 7vw, 6rem);

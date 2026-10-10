@@ -23,14 +23,15 @@ const satoshi = localFont({
 });
 
 
+// Kept under ~155 characters (and the title under ~60) so Google shows them untruncated.
 const DESCRIPTION =
-    'Muhammad Atif (Atif Siddique) — Senior Full Stack JavaScript Developer in Karachi, Pakistan with 9+ years building React, React Native, Vue.js, Node.js and Ruby on Rails apps, plus large-scale data scraping systems. Available for hire.';
+    'Muhammad Atif (Atif Siddique), software developer in Karachi with 9+ years building React, React Native, Node.js and Rails apps and data scrapers.';
 const SHORT_DESCRIPTION =
     '9+ years building web, mobile and automation solutions. React, React Native, Vue.js, Node.js, Ruby on Rails and large-scale data scraping.';
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE),
-    title: 'Muhammad Atif — Senior Full Stack JavaScript Developer | React, Node.js & Data Scraping',
+    title: 'Muhammad Atif Siddique | Full Stack Software Developer',
     description: DESCRIPTION,
     authors: [{ name: 'Muhammad Atif' }],
     // Canonical and JSON-LD live on each page, not here: the layout is shared by
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         siteName: 'Muhammad Atif',
-        title: 'Muhammad Atif — Senior Full Stack JavaScript Developer',
+        title: 'Muhammad Atif Siddique | Full Stack Software Developer',
         description: SHORT_DESCRIPTION,
         type: 'profile',
         url: SITE,
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
                 url: `${SITE}/assets/profile.jpeg`,
                 width: 960,
                 height: 1280,
-                alt: 'Portrait of Muhammad Atif, Full Stack JavaScript Developer',
+                alt: 'Portrait of Muhammad Atif (Atif Siddique), software developer',
             },
         ],
     },
@@ -68,12 +69,12 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         site: '@AtifSiddiqui55',
         creator: '@AtifSiddiqui55',
-        title: 'Muhammad Atif — Senior Full Stack JavaScript Developer',
+        title: 'Muhammad Atif Siddique | Full Stack Software Developer',
         description: SHORT_DESCRIPTION,
         images: [
             {
                 url: `${SITE}/assets/profile.jpeg`,
-                alt: 'Portrait of Muhammad Atif, Full Stack JavaScript Developer',
+                alt: 'Portrait of Muhammad Atif (Atif Siddique), software developer',
             },
         ],
     },

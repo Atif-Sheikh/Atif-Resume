@@ -100,7 +100,7 @@ function ReviewCard({ review, delay, ref }: { review: Review; delay: number; ref
                     <img
                         className="review-avatar"
                         src={`/assets/reviews/${review.user}.webp`}
-                        alt=""
+                        alt={`${displayName(review.user)}'s profile photo`}
                         width={40}
                         height={40}
                         loading="lazy"

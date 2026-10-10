@@ -23,9 +23,9 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener"
                             className="social-link"
-                            aria-label={s.label}
                         >
                             <Icon name={s.icon} />
+                            <span className="sr-only">{s.label}</span>
                         </a>
                     ))}
                 </div>

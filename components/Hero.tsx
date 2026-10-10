@@ -63,21 +63,25 @@ export default function Hero() {
             <HeroCanvas />
             <div className="hero-inner container">
                 <div className="hero-content">
-                    <p className="hero-eyebrow">
-                        <span className="eyebrow-line" />
-                        Full Stack JS Developer — Karachi, PK
-                    </p>
-                    <h1 className="hero-name" aria-label="Muhammad Atif">
-                        <span className="hero-name-line outline">
-                            <SplitChars text="MUHAMMAD" offset={0} />
-                        </span>
-                        <span className="hero-name-line filled">
-                            <SplitChars text="ATIF" offset={8} />
-                            <em>
-                                <span className="char" style={{ transitionDelay: '384ms' }}>
-                                    .
-                                </span>
-                            </em>
+                    {/* The eyebrow sits inside the h1 so the heading carries the role, not
+                        just the name (SEO tools flag a bare two-word h1). */}
+                    <h1 aria-label="Muhammad Atif, Senior Full Stack JavaScript Developer in Karachi, Pakistan">
+                        <span className="hero-eyebrow">
+                            <span className="eyebrow-line" />
+                            Senior Full Stack JS Developer — Karachi, PK
+                        </span>{' '}
+                        <span className="hero-name">
+                            <span className="hero-name-line outline">
+                                <SplitChars text="MUHAMMAD" offset={0} />
+                            </span>{' '}
+                            <span className="hero-name-line filled">
+                                <SplitChars text="ATIF" offset={8} />
+                                <em>
+                                    <span className="char" style={{ transitionDelay: '384ms' }}>
+                                        .
+                                    </span>
+                                </em>
+                            </span>
                         </span>
                     </h1>
                     <div className="hero-roles" aria-hidden="true">
@@ -121,7 +125,7 @@ export default function Hero() {
                             height={850}
                             fetchPriority="high"
                             decoding="async"
-                            alt="Muhammad Atif, Full Stack JavaScript Developer"
+                            alt="Muhammad Atif (Atif Siddique), software developer in Karachi"
                         />
                         <div className="portrait-ring" aria-hidden="true" />
                     </div>

@@ -22,8 +22,9 @@ export default function About() {
                     </p>
                     <div className="about-body" data-reveal>
                         <p>
-                            A passionate developer of web apps, hybrid mobile apps and data-scraping
-                            systems, with 9+ years of progressive, hands-on experience. Brilliant track
+                            I&rsquo;m Muhammad Atif, also known as Atif Siddique (or Atif Siddiqui), a
+                            software developer from Karachi building web apps, hybrid mobile apps and
+                            data-scraping systems, with 9+ years of progressive, hands-on experience. Brilliant track
                             record of delivering the required tasks on time — calm under pressure, and
                             able to find the optimum way out of even the most critical problems.
                         </p>

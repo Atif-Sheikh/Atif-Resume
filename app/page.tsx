@@ -23,14 +23,14 @@ const JSON_LD = {
             '@type': 'Person',
             '@id': `${SITE}/#person`,
             name: 'Muhammad Atif',
-            alternateName: ['Atif Siddique', 'Muhammad Atif Siddique'],
+            alternateName: ['Atif Siddique', 'Atif Siddiqui', 'Muhammad Atif Siddique', 'Atif'],
             url: `${SITE}/`,
             image: {
                 '@type': 'ImageObject',
                 url: `${SITE}/assets/profile.jpeg`,
                 caption: 'Muhammad Atif, Full Stack JavaScript Developer',
             },
-            jobTitle: 'Senior Full Stack JavaScript Developer',
+            jobTitle: ['Senior Full Stack JavaScript Developer', 'Software Developer'],
             description:
                 'Senior Full Stack JavaScript Developer with 9+ years of experience in web apps, hybrid mobile apps and large-scale data scraping.',
             worksFor: { '@type': 'Organization', name: 'Crawlbase', url: 'https://crawlbase.com/' },
@@ -73,7 +73,9 @@ const JSON_LD = {
             '@type': 'WebSite',
             '@id': `${SITE}/#website`,
             url: `${SITE}/`,
-            name: 'Muhammad Atif — Full Stack JavaScript Developer',
+            // Google takes the site name shown in results from WebSite.name.
+            name: 'Atif Siddique',
+            alternateName: ['Muhammad Atif', 'atifsiddique.com'],
             inLanguage: 'en',
             publisher: { '@id': `${SITE}/#person` },
         },
@@ -81,7 +83,7 @@ const JSON_LD = {
             '@type': 'ProfilePage',
             '@id': `${SITE}/#webpage`,
             url: `${SITE}/`,
-            name: 'Muhammad Atif — Senior Full Stack JavaScript Developer',
+            name: 'Muhammad Atif Siddique | Full Stack Software Developer',
             isPartOf: { '@id': `${SITE}/#website` },
             // ProfilePage requires mainEntity (the subject). `about` alone
             // isn't enough — Google flags "Missing field mainEntity".

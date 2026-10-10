@@ -77,7 +77,11 @@ export default function Experience() {
                                 <span className="timeline-company">{job.company}</span>
                             </div>
                             <div className="timeline-content">
-                                <h3>{job.role}</h3>
+                                <h3>
+                                    {job.role}
+                                    {/* Two jobs share a title; the company keeps each heading unique. */}
+                                    <span className="sr-only"> at {job.company}</span>
+                                </h3>
                                 <p>{job.body}</p>
                             </div>
                         </div>
