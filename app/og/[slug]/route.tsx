@@ -2,8 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
 import { formatDate, getPost, getPosts } from '@/lib/blog';
+import { C, COVERS } from '../covers';
 
-// Build-time share cards: out/og/<slug>.png, 1200×630. The ".png" lives in the
+// Build-time cover + share images: out/og/<slug>.png, 1200×630. The ".png" lives in the
 // param itself, so the static export writes a real .png file (GitHub Pages
 // picks the content type from the extension) and no folder sits beside the
 // post's .html to trigger a trailing-slash redirect.
@@ -11,20 +12,22 @@ export const dynamic = 'force-static';
 export const dynamicParams = false;
 export const generateStaticParams = () => getPosts().map((p) => ({ slug: `${p.slug}.png` }));
 
-// Satori can't read woff2; these are the brand fonts converted to TTF.
+// Satori can't read woff2; these are the brand fonts converted to TTF, plus
+// JetBrains Mono (OFL) for the code in cover illustrations.
 const font = (file: string) => fs.readFileSync(path.join(process.cwd(), 'lib/og-fonts', file));
 const portrait = `data:image/jpeg;base64,${fs
     .readFileSync(path.join(process.cwd(), 'public/assets/profile.jpeg'))
     .toString('base64')}`;
 
-const C = { bg: '#070708', text: '#f2efea', dim: '#9b968e', accent: '#ff6b2b', line: 'rgba(242,239,234,0.16)' };
-
 export async function GET(_: Request, { params }: { params: Promise<{ slug: string }> }) {
     const post = getPost((await params).slug.replace(/\.png$/, ''))!;
+    const Cover = COVERS[post.slug];
     const size = post.title.length > 70 ? 60 : post.title.length > 45 ? 72 : 84;
 
     return new ImageResponse(
-        (
+        Cover ? (
+            <Cover />
+        ) : (
             <div
                 style={{
                     width: '100%',
@@ -102,6 +105,8 @@ export async function GET(_: Request, { params }: { params: Promise<{ slug: stri
                 { name: 'Clash', data: font('clash-display-700.ttf'), weight: 700 },
                 { name: 'Satoshi', data: font('satoshi-400.ttf'), weight: 400 },
                 { name: 'Satoshi', data: font('satoshi-700.ttf'), weight: 700 },
+                { name: 'Mono', data: font('jetbrains-mono-400.woff'), weight: 400 },
+                { name: 'Mono', data: font('jetbrains-mono-700.woff'), weight: 700 },
             ],
         },
     );
