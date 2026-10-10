@@ -8,6 +8,9 @@ export default function BlogBar() {
                     MA<em>.</em>
                 </a>
                 <nav className="resume-actions" aria-label="Blog">
+                    <a href="/" className="resume-link">
+                        Home
+                    </a>
                     <a href="/blog/" className="resume-link">
                         Blog
                     </a>

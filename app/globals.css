@@ -2119,6 +2119,10 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     .resume-entry { grid-template-columns: 1fr; gap: 0.6rem; }
     .resume-projects { grid-template-columns: 1fr; }
     .resume-actions .btn-ghost { display: none; }
+    /* Logo + three links + a button has to fit 343px without the button wrapping. */
+    .resume-actions { gap: 0.25rem; }
+    .resume-link { padding: 0 0.35rem; }
+    .resume-actions .btn { padding-inline: 0.9rem; white-space: nowrap; }
 }
 
 /* ==========================
@@ -2126,6 +2130,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
    Reuses the résumé bar and wrap; posts are Markdown rendered into .prose.
    ========================== */
 .blog { padding: clamp(3rem, 8vw, 5.5rem) 0 6rem; }
+.blog-post { padding-top: 1rem; }
 
 .blog-head { max-width: 46rem; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
 .blog-head h1 {
@@ -2160,7 +2165,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .blog-card-body { display: flex; flex-direction: column; gap: 0.9rem; flex: 1; padding: clamp(1.5rem, 3vw, 2rem); }
 .blog-cover { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; }
 .blog-card .blog-cover { border-bottom: 1px solid var(--line); }
-.post-cover { margin-bottom: 2.5rem; border: 1px solid var(--line); border-radius: 20px; }
+.post-cover { margin: 1.75rem 0 1.25rem; border: 1px solid var(--line); border-radius: 20px; }
 .blog-card:has(a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
 .blog-card h2 {
     font-family: var(--font-display);
@@ -2174,6 +2179,10 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .blog-card h2 a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
 .blog-card-desc { flex: 1; color: var(--text-dim); }
 
+@media (prefers-reduced-motion: reduce) {
+    .blog-card:hover { transform: none; }
+}
+
 .blog-meta { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; font-size: 0.85rem; color: var(--text-dim); }
 .blog-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; }
 .blog-tags li {
@@ -2185,6 +2194,53 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 
 .post { max-width: 46rem; margin-inline: auto; }
+.post-head, .post-main { min-width: 0; max-width: 46rem; }
+
+/* Fills as the page scrolls; needs scroll-driven animations, hidden elsewhere. */
+.read-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+    .read-progress {
+        display: block;
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 60;
+        height: 3px;
+        background: var(--accent);
+        transform-origin: 0 50%;
+        animation: read-progress linear both;
+        animation-timeline: scroll(root);
+    }
+}
+@keyframes read-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Desktop gets a sticky table of contents beside the article. */
+.post-toc { display: none; }
+@media (min-width: 1180px) {
+    .post { max-width: calc(46rem + 4rem + 15rem); }
+    .post-layout { display: grid; grid-template-columns: minmax(0, 46rem) 15rem; gap: 4rem; }
+    .post-toc {
+        display: block;
+        position: sticky;
+        top: 6rem;
+        align-self: start;
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+    }
+}
+.post-toc p { margin-bottom: 0.75rem; font-weight: 700; font-size: 0.9rem; }
+.post-toc ol { list-style: none; border-left: 1px solid var(--line); }
+.post-toc a {
+    display: block;
+    margin-left: -1px;
+    padding: 0.4rem 0 0.4rem 1rem;
+    border-left: 2px solid transparent;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--text-dim);
+    transition: color var(--t-fast), border-color var(--t-fast);
+}
+.post-toc a:hover { color: var(--text); }
+.post-toc a[aria-current] { color: var(--text); border-left-color: var(--accent); }
 .post-head { padding-bottom: 2rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
 .post-back {
     display: inline-flex;
@@ -2195,6 +2251,8 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     color: var(--text-dim);
     transition: color var(--t-fast);
 }
+.post-back { gap: 0.45rem; }
+.post-back .ico { transform: rotate(180deg); }
 .post-back:hover { color: var(--accent-soft); }
 .post-head h1 {
     font-family: var(--font-display);
@@ -2205,9 +2263,9 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     letter-spacing: -0.035em;
     text-wrap: balance;
 }
-.post-lede { margin: 1.25rem 0 1.5rem; font-size: 1.2rem; line-height: 1.6; color: var(--text-dim); }
+.post-lede { margin-top: 1rem; font-size: 1.2rem; line-height: 1.6; color: var(--text-dim); }
 
-.prose { font-size: 1.08rem; line-height: 1.75; }
+.prose { --prose-text: #d4d0c9; font-size: 1.08rem; line-height: 1.75; }
 .prose > * + * { margin-top: 1.25rem; }
 .prose h2 {
     margin-top: 3rem;
@@ -2220,7 +2278,20 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 .prose h3 { margin-top: 2.2rem; font-family: var(--font-display); word-spacing: 0.12em; font-weight: 600; font-size: 1.3rem; line-height: 1.3; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.85rem; }
-.prose p, .prose li { color: #d4d0c9; }
+/* Headings link to themselves; the # appears in the margin on hover. */
+.prose :is(h2, h3) { scroll-margin-top: 6rem; }
+.prose :is(h2, h3) a { color: inherit; text-decoration: none; }
+.prose :is(h2, h3) a::before {
+    content: '#';
+    position: absolute;
+    margin-left: -1.1em;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity var(--t-fast);
+}
+.prose :is(h2, h3) a:hover::before, .prose :is(h2, h3) a:focus-visible::before { opacity: 1; }
+.prose :is(h2, h3) a:hover { color: inherit; }
+.prose p, .prose li { color: var(--prose-text); }
 .prose strong { color: var(--text); }
 .prose a { color: var(--accent-soft); text-decoration: underline; text-underline-offset: 3px; }
 .prose a:hover { color: var(--accent); }
@@ -2235,12 +2306,40 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     border: 1px solid var(--line);
     border-radius: 6px;
 }
-.prose pre {
-    overflow-x: auto;
-    padding: 1.1rem 1.25rem;
+.code-block {
+    overflow: hidden;
     background: var(--bg-elevated);
     border: 1px solid var(--line);
     border-radius: 12px;
+}
+.code-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.25rem;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+}
+.code-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    padding: 0 1.1rem;
+    background: none;
+    border: 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    transition: color var(--t-fast);
+}
+.code-copy:hover { color: var(--accent-soft); }
+.code-copy:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; border-radius: 10px; }
+.prose pre {
+    overflow-x: auto;
+    padding: 1.1rem 1.25rem;
     font-size: 0.9rem;
     line-height: 1.6;
 }
@@ -2255,13 +2354,27 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .prose th, .prose td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
 .prose th { font-weight: 700; color: var(--text); }
 
+.post-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+.post-share p { font-weight: 700; }
+.post-share div { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.post-share .btn { min-height: 44px; }
+
 .post-cta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 1.25rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding: 1.75rem;
     background: var(--bg-card);
     border: 1px solid var(--line);

@@ -50,6 +50,9 @@ export default function Resume() {
                         <a href="/" className="resume-link">
                             Portfolio
                         </a>
+                        <a href="/blog/" className="resume-link">
+                            Blog
+                        </a>
                         <a href={`mailto:${CONTACT.email}`} className="btn btn-ghost btn-sm">
                             Email me
                         </a>
