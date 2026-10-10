@@ -16,6 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = getPost((await params).slug);
     if (!post) return {};
     const url = `${SITE}/blog/${post.slug}`;
+    // Built by app/og/[slug]/route.tsx.
+    const image = { url: `${SITE}/og/${post.slug}.png`, width: 1200, height: 630, alt: post.title };
     return {
         title: post.title,
         description: post.description,
@@ -31,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             modifiedTime: post.updated ?? post.date,
             authors: [`${SITE}/`],
             tags: post.tags,
+            images: [image],
         },
-        twitter: { ...TWITTER_BASE, title: post.title, description: post.description },
+        twitter: { ...TWITTER_BASE, title: post.title, description: post.description, images: [image] },
     };
 }
 
@@ -52,7 +55,7 @@ export default async function BlogPost({ params }: Props) {
         dateModified: post.updated ?? post.date,
         keywords: post.tags.join(', '),
         inLanguage: 'en',
-        image: `${SITE}/assets/profile.jpeg`,
+        image: `${SITE}/og/${post.slug}.png`,
         author: { '@type': 'Person', '@id': `${SITE}/#person`, name: 'Muhammad Atif', url: `${SITE}/` },
         publisher: { '@id': `${SITE}/#person` },
         isPartOf: { '@id': `${SITE}/blog/#blog` },
