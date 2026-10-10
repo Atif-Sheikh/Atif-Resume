@@ -4,7 +4,7 @@ import BlogBar from '@/components/BlogBar';
 import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
 import { formatDate, getPost, getPosts } from '@/lib/blog';
-import { SITE } from '@/lib/site';
+import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         keywords: post.tags,
         alternates: { canonical: url },
         openGraph: {
+            ...OG_BASE,
             title: post.title,
             description: post.description,
             url,
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             authors: [`${SITE}/`],
             tags: post.tags,
         },
-        twitter: { title: post.title, description: post.description },
+        twitter: { ...TWITTER_BASE, title: post.title, description: post.description },
     };
 }
 

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import IconSprite from '@/components/IconSprite';
-import { SITE } from '@/lib/site';
+import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 
 const clash = localFont({
     variable: '--font-clash',
@@ -48,35 +48,18 @@ export const metadata: Metadata = {
         apple: '/assets/profile-400.webp',
     },
     openGraph: {
-        siteName: 'Muhammad Atif',
+        ...OG_BASE,
         title: 'Muhammad Atif Siddique | Full Stack Software Developer',
         description: SHORT_DESCRIPTION,
         type: 'profile',
         url: SITE,
-        locale: 'en_US',
         firstName: 'Muhammad',
         lastName: 'Atif',
-        images: [
-            {
-                url: `${SITE}/assets/profile.jpeg`,
-                width: 960,
-                height: 1280,
-                alt: 'Portrait of Muhammad Atif (Atif Siddique), software developer',
-            },
-        ],
     },
     twitter: {
-        card: 'summary_large_image',
-        site: '@AtifSiddiqui55',
-        creator: '@AtifSiddiqui55',
+        ...TWITTER_BASE,
         title: 'Muhammad Atif Siddique | Full Stack Software Developer',
         description: SHORT_DESCRIPTION,
-        images: [
-            {
-                url: `${SITE}/assets/profile.jpeg`,
-                alt: 'Portrait of Muhammad Atif (Atif Siddique), software developer',
-            },
-        ],
     },
     other: {
         'geo.region': 'PK-SD',

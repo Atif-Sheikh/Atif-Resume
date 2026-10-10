@@ -3,7 +3,7 @@ import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
 import REVIEWS from '@/data/fiverr-reviews.json';
 import { CONTACT, EDUCATION, EXPERIENCE, FOCUS, HEADLINE, LANGUAGES, PROJECTS, SKILLS, SUMMARY, UPWORK } from '@/data/resume';
-import { SITE } from '@/lib/site';
+import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 
 // Static export writes this route to out/home.html, so the indexed URL
 // /home.html keeps working on GitHub Pages.
@@ -11,14 +11,13 @@ const URL = `${SITE}/home.html`;
 const TITLE = `Résumé | Muhammad Atif, ${HEADLINE}`;
 const DESCRIPTION =
     'Résumé of Muhammad Atif (Atif Siddique), Senior Frontend Lead in Karachi with 8+ years building production web and mobile apps in React, TypeScript and React Native.';
-const IMAGE = { url: `${SITE}/assets/profile.jpeg`, alt: 'Portrait of Muhammad Atif' };
 
 export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     alternates: { canonical: URL },
-    openGraph: { title: TITLE, description: DESCRIPTION, url: URL, type: 'profile', siteName: 'Muhammad Atif', images: [IMAGE] },
-    twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [IMAGE] },
+    openGraph: { ...OG_BASE, title: TITLE, description: DESCRIPTION, url: URL, type: 'profile' },
+    twitter: { ...TWITTER_BASE, title: TITLE, description: DESCRIPTION },
 };
 
 const CONTACT_LINKS = [

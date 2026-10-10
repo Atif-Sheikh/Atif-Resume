@@ -3,7 +3,7 @@ import BlogBar from '@/components/BlogBar';
 import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
 import { formatDate, getPosts } from '@/lib/blog';
-import { SITE } from '@/lib/site';
+import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 
 // Trailing slash: the build moves this page to out/blog/index.html, because
 // GitHub Pages redirects /blog to /blog/ once the blog/ folder of posts exists.
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     alternates: { canonical: URL, types: { 'application/rss+xml': `${SITE}/blog/rss.xml` } },
-    openGraph: { title: TITLE, description: DESCRIPTION, url: URL, type: 'website' },
-    twitter: { title: TITLE, description: DESCRIPTION },
+    openGraph: { ...OG_BASE, title: TITLE, description: DESCRIPTION, url: URL, type: 'website' },
+    twitter: { ...TWITTER_BASE, title: TITLE, description: DESCRIPTION },
 };
 
 export default function Blog() {
