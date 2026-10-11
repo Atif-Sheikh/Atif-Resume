@@ -14,6 +14,13 @@ export default function IconSprite() {
                 <symbol id="i-arrow-right" viewBox="0 0 24 24" {...stroke} strokeWidth="2.2">
                     <path d="M5 12h14M13 6l6 6-6 6" />
                 </symbol>
+                <symbol id="i-sun" viewBox="0 0 24 24" {...stroke} strokeWidth="2">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                </symbol>
+                <symbol id="i-moon" viewBox="0 0 24 24" {...stroke} strokeWidth="2">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </symbol>
                 <symbol id="i-external" viewBox="0 0 24 24" {...stroke} strokeWidth="2">
                     <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
                 </symbol>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Icon from './Icon';
+import ThemeToggle from './ThemeToggle';
 
 const NAV = [
     { href: '#about', label: 'About' },
@@ -58,20 +59,23 @@ export default function Header() {
                             </li>
                         ))}
                     </ul>
-                    <a href="mailto:atifsiddiquissg@gmail.com" className="nav-cta" data-magnetic>
-                        Let&rsquo;s Talk <Icon name="i-arrow-right" />
-                    </a>
-                    <button
-                        className={open ? 'hamburger active' : 'hamburger'}
-                        id="hamburger"
-                        aria-label={open ? 'Close menu' : 'Open menu'}
-                        aria-expanded={open}
-                        aria-controls="mobileMenu"
-                        onClick={() => setOpen((v) => !v)}
-                    >
-                        <span />
-                        <span />
-                    </button>
+                    <div className="nav-end">
+                        <a href="mailto:atifsiddiquissg@gmail.com" className="nav-cta" data-magnetic>
+                            Let&rsquo;s Talk <Icon name="i-arrow-right" />
+                        </a>
+                        <ThemeToggle />
+                        <button
+                            className={open ? 'hamburger active' : 'hamburger'}
+                            id="hamburger"
+                            aria-label={open ? 'Close menu' : 'Open menu'}
+                            aria-expanded={open}
+                            aria-controls="mobileMenu"
+                            onClick={() => setOpen((v) => !v)}
+                        >
+                            <span />
+                            <span />
+                        </button>
+                    </div>
                 </nav>
             </header>
 

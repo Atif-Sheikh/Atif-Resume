@@ -79,9 +79,14 @@ export const viewport: Viewport = {
    happens, so a failed bundle can't leave the page blank. */
 const REVEAL_GATE = `document.documentElement.className+=' js';window.__revealFailsafe=setTimeout(function(){document.documentElement.classList.remove('js')},2500)`;
 
-// suppressHydrationWarning on <html>: REVEAL_GATE adds the `js` class before
-// React hydrates, which is exactly the pre-hydration mutation that attribute
-// exists for. React leaves the class in place.
+/* Picks the theme before first paint so a light-mode visitor never sees a dark
+   flash: a saved choice wins, otherwise the OS setting. Without JS the site
+   stays on its dark default. components/ThemeToggle.tsx flips it later. */
+const THEME_GATE = `var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t`;
+
+// suppressHydrationWarning on <html>: THEME_GATE sets data-theme and
+// REVEAL_GATE adds the `js` class before React hydrates, which is exactly the
+// pre-hydration mutation that attribute exists for. React leaves both in place.
 // Same on <body>, for extensions that stamp attributes on it before hydration
 // (Grammarly's data-gr-ext-installed is the usual one). It only suppresses this
 // element's own attributes, so real mismatches in children still report.
@@ -93,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             suppressHydrationWarning
         >
             <head>
+                <script dangerouslySetInnerHTML={{ __html: THEME_GATE }} />
                 <script dangerouslySetInnerHTML={{ __html: REVEAL_GATE }} />
             </head>
             <body suppressHydrationWarning>

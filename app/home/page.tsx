@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
+import ThemeToggle from '@/components/ThemeToggle';
 import REVIEWS from '@/data/fiverr-reviews.json';
 import { CONTACT, EDUCATION, EXPERIENCE, FOCUS, HEADLINE, LANGUAGES, PROJECTS, SKILLS, SUMMARY, UPWORK } from '@/data/resume';
 import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
@@ -53,11 +54,15 @@ export default function Resume() {
                         <a href="/blog/" className="resume-link">
                             Blog
                         </a>
+                        <ThemeToggle />
                         <a href={`mailto:${CONTACT.email}`} className="btn btn-ghost btn-sm">
                             Email me
                         </a>
                         <a href="/Muhammad_Atif_Resume.pdf" download className="btn btn-primary btn-sm">
-                            Download résumé
+                            {/* One inline label, so the button's flex gap doesn't split the words. */}
+                            <span>
+                                Download<span className="hide-sm"> résumé</span>
+                            </span>
                         </a>
                     </nav>
                 </div>

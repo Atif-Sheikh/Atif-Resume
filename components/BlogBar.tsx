@@ -1,3 +1,5 @@
+import ThemeToggle from './ThemeToggle';
+
 // Same sticky bar as the résumé page. id="home" lets the shared footer's logo
 // link scroll back up here.
 export default function BlogBar() {
@@ -11,12 +13,13 @@ export default function BlogBar() {
                     <a href="/" className="resume-link">
                         Home
                     </a>
-                    <a href="/blog/" className="resume-link">
+                    <a href="/blog/" className="resume-link resume-link-self">
                         Blog
                     </a>
                     <a href="/home.html" className="resume-link">
                         Résumé
                     </a>
+                    <ThemeToggle />
                     <a href="mailto:atifsiddiquissg@gmail.com" className="btn btn-primary btn-sm">
                         Hire me
                     </a>

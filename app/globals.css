@@ -41,6 +41,13 @@
     --text-faint: #55524d;
     --line: rgba(242, 239, 234, 0.08);
     --line-strong: rgba(242, 239, 234, 0.16);
+    /* Fills that stay the same in both themes, and the ink that sits on them. */
+    --accent-warm: #ffb02e;
+    --on-accent: #14080a;
+    --shadow-ink: rgba(0, 0, 0, 0.5);
+    --prose-text: #d4d0c9;
+    --grain-opacity: 0.05;
+    color-scheme: dark;
 
     /* --font-clash / --font-satoshi are injected by next/font/local in layout.tsx.
        Clash Display's space is only 0.14em and headings track it tighter still
@@ -52,6 +59,27 @@
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --t-fast: 0.3s var(--ease-out);
     --t-slow: 0.7s var(--ease-out);
+}
+
+/* Light pairs with the dark default: same brand orange family, deepened so it
+   still reads on a light page (accent 3.4:1 for icons and display type,
+   accent-soft 4.75:1 for small text), and every text tier passes AA. */
+:root[data-theme='light'] {
+    --accent: #ea580c;
+    --accent-soft: #c2410c;
+    --accent-glow: rgba(234, 88, 12, 0.22);
+    --bg: #f6f5f2;
+    --bg-elevated: #eeece7;
+    --bg-card: #ffffff;
+    --text: #141316;
+    --text-dim: #5b5751;
+    --text-faint: #7c776f;
+    --line: rgba(20, 19, 22, 0.1);
+    --line-strong: rgba(20, 19, 22, 0.18);
+    --shadow-ink: rgba(60, 40, 20, 0.14);
+    --prose-text: #2b2926;
+    --grain-opacity: 0.035;
+    color-scheme: light;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -106,7 +134,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     padding: 0.85rem 1.4rem;
     border-radius: 100px;
     background: var(--accent);
-    color: #14080a;
+    color: var(--on-accent);
     font-weight: 700;
     font-size: 0.9rem;
     transition: top 0.25s var(--ease-out);
@@ -124,7 +152,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     height: 200%;
     pointer-events: none;
     z-index: 9000;
-    opacity: 0.05;
+    opacity: var(--grain-opacity);
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     animation: grain-shift 8s steps(10) infinite;
 }
@@ -206,7 +234,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 
 .header.scrolled {
     padding: 0.9rem 0;
-    background: rgba(7, 7, 8, 0.82);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--line);
@@ -217,7 +245,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     top: 0; left: 0;
     height: 2px;
     width: 0%;
-    background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
     z-index: 1001;
 }
 
@@ -271,6 +299,31 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     transform-origin: left;
 }
 
+/* Groups the CTA, theme toggle and (on phones) the menu button at the end. */
+.nav-end { display: flex; align-items: center; gap: 0.75rem; }
+
+.theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--text);
+    transition: border-color var(--t-fast), color var(--t-fast);
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent-soft); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.theme-toggle .ico { width: 1.15rem; height: 1.15rem; }
+/* Shows where a click takes you: the sun in dark mode, the moon in light. */
+.theme-toggle .theme-icon-moon, :root[data-theme='light'] .theme-toggle .theme-icon-sun { display: none; }
+:root[data-theme='light'] .theme-toggle .theme-icon-moon { display: block; }
+
+/* The theme switch crossfades (ThemeToggle uses the View Transitions API). */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+
 .nav-cta {
     font-size: 0.9rem;
     font-weight: 700;
@@ -288,7 +341,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .nav-cta:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--bg);
+    color: var(--on-accent);
     box-shadow: 0 0 32px var(--accent-glow);
 }
 
@@ -324,7 +377,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .mobile-menu {
     position: fixed;
     inset: 0;
-    background: rgba(7, 7, 8, 0.97);
+    background: color-mix(in srgb, var(--bg) 97%, transparent);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     z-index: 990;
@@ -437,7 +490,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 
 .hero-name-line.outline {
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(242, 239, 234, 0.55);
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--text) 55%, transparent);
 }
 
 .hero-name-line.filled em { color: var(--accent); }
@@ -507,8 +560,8 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .btn i { font-size: 0.8rem; transition: transform var(--t-fast); }
 
 .btn-primary {
-    background: linear-gradient(100deg, var(--accent), var(--accent-soft));
-    color: #14080a;
+    background: linear-gradient(100deg, var(--accent), var(--accent-warm));
+    color: var(--on-accent);
     box-shadow: 0 8px 36px var(--accent-glow);
 }
 
@@ -553,7 +606,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(7, 7, 8, 0.55));
+    background: linear-gradient(180deg, transparent 55%, color-mix(in srgb, var(--bg) 55%, transparent));
     pointer-events: none;
 }
 
@@ -575,7 +628,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     font-family: var(--font-mono);
     font-size: 0.78rem;
     color: var(--text);
-    background: rgba(16, 16, 19, 0.85);
+    background: color-mix(in srgb, var(--bg-card) 85%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--line-strong);
@@ -727,7 +780,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     font-size: clamp(4rem, 8vw, 6.5rem);
     line-height: 0.8;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(242, 239, 234, 0.14);
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--text) 14%, transparent);
     user-select: none;
 }
 
@@ -782,7 +835,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 
 .about-statement em {
-    background: linear-gradient(100deg, var(--accent), var(--accent-soft));
+    background: linear-gradient(100deg, var(--accent), var(--accent-warm));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -910,7 +963,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .stack-card:hover {
     transform: translateY(-8px);
     border-color: rgba(255, 107, 43, 0.4);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 18px 44px var(--shadow-ink);
 }
 
 .stack-card:hover::before { opacity: 1; }
@@ -942,7 +995,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     height: 100%;
     width: 0;
     border-radius: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
     transition: width 1s var(--ease-out);
 }
 
@@ -974,7 +1027,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     inset: 0;
     border-radius: 20px;
     padding: 1px;
-    background: linear-gradient(135deg, var(--accent), transparent 40%, transparent 60%, var(--accent-soft));
+    background: linear-gradient(135deg, var(--accent), transparent 40%, transparent 60%, var(--accent-warm));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -988,7 +1041,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 
 .project-card:hover {
     border-color: transparent;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 48px rgba(255, 107, 43, 0.07);
+    box-shadow: 0 24px 64px var(--shadow-ink), 0 0 48px rgba(255, 107, 43, 0.07);
 }
 
 .project-visual {
@@ -1128,7 +1181,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .visual-bars span {
     width: 22px;
     border-radius: 6px 6px 0 0;
-    background: linear-gradient(180deg, var(--accent-soft), rgba(255, 107, 43, 0.25));
+    background: linear-gradient(180deg, var(--accent-warm), rgba(255, 107, 43, 0.25));
     transition: height 0.6s var(--ease-out);
 }
 
@@ -1285,7 +1338,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .service-row:hover .service-arrow {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--bg);
+    color: var(--on-accent);
     transform: rotate(-45deg);
 }
 
@@ -1315,7 +1368,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     display: block;
     width: 100%;
     height: 0%;
-    background: linear-gradient(180deg, var(--accent), var(--accent-soft));
+    background: linear-gradient(180deg, var(--accent), var(--accent-warm));
 }
 
 .timeline-item {
@@ -1438,7 +1491,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 
 .freelance-card:hover {
     border-color: color-mix(in srgb, var(--brand) 55%, transparent);
-    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.5), 0 0 40px color-mix(in srgb, var(--brand) 18%, transparent);
+    box-shadow: 0 22px 56px var(--shadow-ink), 0 0 40px color-mix(in srgb, var(--brand) 18%, transparent);
 }
 
 .freelance-card:hover::after { opacity: 1; }
@@ -1637,7 +1690,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 
 .contact-title em {
-    background: linear-gradient(100deg, var(--accent), var(--accent-soft));
+    background: linear-gradient(100deg, var(--accent), var(--accent-warm));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1747,7 +1800,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .social-link:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--bg);
+    color: var(--on-accent);
     transform: translateY(-4px);
     box-shadow: 0 8px 24px var(--accent-glow);
 }
@@ -1767,7 +1820,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     right: 20px;
     max-width: 720px;
     margin: 0 auto;
-    background: rgba(16, 16, 19, 0.92);
+    background: color-mix(in srgb, var(--bg-card) 92%, transparent);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--line-strong);
@@ -1811,7 +1864,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     font-size: clamp(3.5rem, 7vw, 5rem);
     line-height: 0.9;
     letter-spacing: -0.03em;
-    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    background: linear-gradient(135deg, var(--accent), var(--accent-warm));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1858,7 +1911,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     transition: color var(--t-fast), border-color var(--t-fast);
 }
 .reviews-filter:hover { color: var(--text); border-color: var(--accent); }
-.reviews-filter[aria-pressed='true'] { color: var(--bg); border-color: transparent; }
+.reviews-filter[aria-pressed='true'] { color: var(--on-accent); border-color: transparent; }
 .reviews-filter-label { position: relative; z-index: 1; }
 .reviews-filter small { font-size: inherit; opacity: 0.65; margin-left: 0.3rem; }
 .reviews-pill { position: absolute; inset: 0; border-radius: inherit; background: var(--accent); }
@@ -1884,7 +1937,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 .review-card:hover {
     border-color: rgba(255, 107, 43, 0.35);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 40px rgba(255, 107, 43, 0.06);
+    box-shadow: 0 24px 64px var(--shadow-ink), 0 0 40px rgba(255, 107, 43, 0.06);
 }
 /* min-height = the tag's height, so cards without a tag start their text level. */
 .review-top { display: flex; align-items: center; gap: 0.6rem; min-height: 1.5rem; }
@@ -1904,8 +1957,8 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-    color: var(--bg);
+    background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+    color: var(--on-accent);
     font-family: var(--font-display);
     word-spacing: 0.12em;
     font-weight: 600;
@@ -1956,7 +2009,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(7, 7, 8, 0.82);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
@@ -2123,6 +2176,18 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     .resume-actions { gap: 0.25rem; }
     .resume-link { padding: 0 0.35rem; }
     .resume-actions .btn { padding-inline: 0.9rem; white-space: nowrap; }
+    /* Room for the theme toggle: the blog bar drops its own link (the logo and
+       "All posts" cover it) and the download button's label shortens, while
+       screen readers still hear "Download résumé". */
+    .resume-link-self { display: none; }
+    .hide-sm {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
 }
 
 /* ==========================
@@ -2265,7 +2330,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 .post-lede { margin-top: 1rem; font-size: 1.2rem; line-height: 1.6; color: var(--text-dim); }
 
-.prose { --prose-text: #d4d0c9; font-size: 1.08rem; line-height: 1.75; }
+.prose { font-size: 1.08rem; line-height: 1.75; }
 .prose > * + * { margin-top: 1.25rem; }
 .prose h2 {
     margin-top: 3rem;
@@ -2570,8 +2635,8 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     align-items: center;
     justify-content: center;
     font-size: 1.35rem;
-    color: #14080a;
-    background: linear-gradient(100deg, var(--accent), var(--accent-soft));
+    color: var(--on-accent);
+    background: linear-gradient(100deg, var(--accent), var(--accent-warm));
     box-shadow: 0 8px 28px var(--accent-glow);
     transition: transform var(--t-fast), box-shadow var(--t-fast);
 }
@@ -2636,7 +2701,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     line-height: 1;
     letter-spacing: -0.04em;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(242, 239, 234, 0.5);
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--text) 50%, transparent);
 }
 
 .notfound h1 {
