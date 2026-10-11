@@ -18,7 +18,7 @@ export function GET() {
 - [Portfolio](${SITE}/): projects, services, experience, client reviews and contact details
 - [Résumé](${SITE}/home.html): experience, key projects, skills and education
 - [Résumé PDF](${SITE}/Muhammad_Atif_Resume.pdf): downloadable résumé
-- [Blog](${SITE}/blog/): practical writing on AI-assisted development, React and web scraping
+- [Blog](${SITE}/blog/): practical notes on AI coding tools and shipping software
 
 ## Blog posts
 

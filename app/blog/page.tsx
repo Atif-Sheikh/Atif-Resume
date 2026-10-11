@@ -8,9 +8,9 @@ import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 // Trailing slash: the build moves this page to out/blog/index.html, because
 // GitHub Pages redirects /blog to /blog/ once the blog/ folder of posts exists.
 const URL = `${SITE}/blog/`;
-const TITLE = 'Blog: AI Coding, React and Web Scraping | Muhammad Atif';
+const TITLE = 'Blog: AI Coding and Software Development | Muhammad Atif';
 const DESCRIPTION =
-    'Notes from 9+ years of shipping software: AI-assisted development, React, React Native, Node.js and large-scale web scraping, by Muhammad Atif.';
+    'Practical notes from 9+ years of shipping software: AI coding tools like Claude Code, Cursor and Copilot, and how to get real work done with them.';
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -52,7 +52,7 @@ export default function Blog() {
                     {/* Like the homepage hero, the eyebrow sits inside the h1 so the heading
                         carries the topics, not just the one-word title. */}
                     <h1>
-                        <span className="blog-eyebrow">Blog on AI coding, React and web scraping</span>{' '}
+                        <span className="blog-eyebrow">Notes on AI coding and shipping software</span>{' '}
                         Writing<em>.</em>
                     </h1>
                     <p>
