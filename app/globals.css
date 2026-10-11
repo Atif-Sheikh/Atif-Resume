@@ -674,7 +674,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 
 .stat-label {
     font-size: 0.85rem;
-    color: var(--text-faint);
+    color: var(--text-dim);
 }
 
 .scroll-hint {
@@ -1807,7 +1807,7 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 
 .footer-copy {
     font-size: 0.85rem;
-    color: var(--text-faint);
+    color: var(--text-dim);
 }
 
 /* ==========================
@@ -2207,6 +2207,17 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
     letter-spacing: -0.045em;
 }
 .blog-head h1 em { color: var(--accent); }
+.blog-eyebrow {
+    display: block;
+    margin-bottom: 1.1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    word-spacing: normal;
+    color: var(--text-dim);
+}
 .blog-head p { margin-top: 1.25rem; max-width: 52ch; font-size: 1.1rem; color: var(--text-dim); }
 
 .blog-grid {

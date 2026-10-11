@@ -93,7 +93,7 @@ Prices changed a lot this year, so treat older comparisons with suspicion. These
 <figcaption>Monthly individual prices as of October 2026. The billing models differ, so the same price buys different amounts of work.</figcaption>
 </figure>
 
-| | GitHub Copilot | Cursor | Claude Code |
+| Plan detail | GitHub Copilot | Cursor | Claude Code |
 |---|---|---|---|
 | **Free tier** | Yes: 2,000 completions and 50 chat requests a month | Yes (Hobby): limited agent requests | No. Claude's Free plan doesn't include Claude Code |
 | **Entry plan** | Pro, $10/month | Pro, $20/month | Pro, $20/month ($17 billed yearly) |

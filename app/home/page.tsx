@@ -11,7 +11,7 @@ import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 const URL = `${SITE}/home.html`;
 const TITLE = `Résumé | Muhammad Atif, ${HEADLINE}`;
 const DESCRIPTION =
-    'Résumé of Muhammad Atif (Atif Siddique), Senior Frontend Lead in Karachi with 8+ years building web and mobile apps in React, TypeScript and React Native.';
+    'Résumé of Muhammad Atif (Atif Siddique), Senior Frontend Lead in Karachi with 9+ years building web and mobile apps in React, TypeScript and React Native.';
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -70,7 +70,7 @@ export default function Resume() {
             {/* id="home" so the shared footer's logo link scrolls back up here too. */}
             <header className="resume-bar" id="home">
                 <div className="resume-wrap resume-bar-inner">
-                    <a href="/" className="logo" aria-label="Muhammad Atif, portfolio home">
+                    <a href="/" className="logo" aria-label="MA. Muhammad Atif, portfolio home">
                         MA<em>.</em>
                     </a>
                     <nav className="resume-actions" aria-label="Résumé">

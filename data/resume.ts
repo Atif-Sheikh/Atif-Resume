@@ -14,7 +14,7 @@ export const HEADLINE = 'Senior Frontend Lead';
 export const FOCUS = 'React, TypeScript, React Native and frontend architecture';
 
 export const SUMMARY =
-    'Senior Frontend Lead with 8+ years building and scaling production web and mobile applications in React.js, TypeScript, and React Native. Currently lead a team of 3 engineers, owning frontend architecture, code quality, and delivery for a commercial API platform. Deep expertise in component-driven architecture, state management, performance optimization, and design-system consistency, backed by full-stack fluency across Node.js, GraphQL, and Ruby on Rails. Proven at mentoring developers, establishing code-review and CI/CD standards, and shipping polished interfaces for clients across the UAE, Denmark, and the United States.';
+    'Senior Frontend Lead with 9+ years building and scaling production web and mobile applications in React.js, TypeScript, and React Native. Currently lead a team of 3 engineers, owning frontend architecture, code quality, and delivery for a commercial API platform. Deep expertise in component-driven architecture, state management, performance optimization, and design-system consistency, backed by full-stack fluency across Node.js, GraphQL, and Ruby on Rails. Proven at mentoring developers, establishing code-review and CI/CD standards, and shipping polished interfaces for clients across the UAE, Denmark, and the United States.';
 
 export const SKILLS = [
     { group: 'Core frontend', items: ['React.js', 'TypeScript', 'JavaScript (ES6+)', 'React Native', 'Next.js', 'Redux', 'Vue.js', 'HTML5', 'CSS3'] },

@@ -30,10 +30,10 @@ const JSON_LD = {
                 url: `${SITE}/assets/profile.jpeg`,
                 caption: 'Muhammad Atif, Full Stack JavaScript Developer',
             },
-            jobTitle: ['Senior Full Stack JavaScript Developer', 'Software Developer'],
+            jobTitle: ['Senior Full Stack JavaScript Developer', 'Senior Frontend Lead', 'Software Developer'],
             description:
                 'Senior Full Stack JavaScript Developer with 9+ years of experience in web apps, hybrid mobile apps and large-scale data scraping.',
-            worksFor: { '@type': 'Organization', name: 'Crawlbase', url: 'https://crawlbase.com/' },
+            worksFor: { '@type': 'Organization', name: 'DevAndGo' },
             address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Karachi',

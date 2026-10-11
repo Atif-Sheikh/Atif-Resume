@@ -49,7 +49,10 @@ export default function Blog() {
 
             <main id="main" className="resume-wrap blog">
                 <header className="blog-head">
+                    {/* Like the homepage hero, the eyebrow sits inside the h1 so the heading
+                        carries the topics, not just the one-word title. */}
                     <h1>
+                        <span className="blog-eyebrow">Blog on AI coding, React and web scraping</span>{' '}
                         Writing<em>.</em>
                     </h1>
                     <p>

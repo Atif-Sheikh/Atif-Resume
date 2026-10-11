@@ -6,7 +6,7 @@ export default function BlogBar() {
     return (
         <header className="resume-bar" id="home">
             <div className="resume-wrap resume-bar-inner">
-                <a href="/" className="logo" aria-label="Muhammad Atif, portfolio home">
+                <a href="/" className="logo" aria-label="MA. Muhammad Atif, portfolio home">
                     MA<em>.</em>
                 </a>
                 <nav className="resume-actions" aria-label="Blog">
