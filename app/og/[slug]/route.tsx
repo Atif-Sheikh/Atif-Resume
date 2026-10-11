@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
 import { formatDate, getPost, getPosts } from '@/lib/blog';
-import { C, COVERS } from '../covers';
+import { C, COVERS, FONTS } from '../covers';
 
 // Build-time cover + share images: out/og/<slug>.png, 1200×630. The ".png" lives in the
 // param itself, so the static export writes a real .png file (GitHub Pages
@@ -12,9 +12,6 @@ export const dynamic = 'force-static';
 export const dynamicParams = false;
 export const generateStaticParams = () => getPosts().map((p) => ({ slug: `${p.slug}.png` }));
 
-// Satori can't read woff2; these are the brand fonts converted to TTF, plus
-// JetBrains Mono (OFL) for the code in cover illustrations.
-const font = (file: string) => fs.readFileSync(path.join(process.cwd(), 'lib/og-fonts', file));
 const portrait = `data:image/jpeg;base64,${fs
     .readFileSync(path.join(process.cwd(), 'public/assets/profile.jpeg'))
     .toString('base64')}`;
@@ -101,13 +98,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ slug: stri
         {
             width: 1200,
             height: 630,
-            fonts: [
-                { name: 'Clash', data: font('clash-display-700.ttf'), weight: 700 },
-                { name: 'Satoshi', data: font('satoshi-400.ttf'), weight: 400 },
-                { name: 'Satoshi', data: font('satoshi-700.ttf'), weight: 700 },
-                { name: 'Mono', data: font('jetbrains-mono-400.woff'), weight: 400 },
-                { name: 'Mono', data: font('jetbrains-mono-700.woff'), weight: 700 },
-            ],
+            fonts: FONTS,
         },
     );
 }

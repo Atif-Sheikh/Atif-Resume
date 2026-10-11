@@ -2418,6 +2418,9 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 .prose table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: block; overflow-x: auto; }
 .prose th, .prose td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
 .prose th { font-weight: 700; color: var(--text); }
+.prose figure { margin: 2.25rem 0; }
+.prose figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 16px; }
+.prose figcaption { margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-dim); text-align: center; }
 
 .post-share {
     display: flex;
