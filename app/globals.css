@@ -765,6 +765,38 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
    SECTIONS
    ========================== */
 .section { padding: 8rem 0 2rem; position: relative; z-index: 2; }
+/* Homepage "Latest from the blog": one row per post, the whole row clickable. */
+.writing-list { list-style: none; padding: 0; border-bottom: 1px solid var(--line); }
+.writing-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.5rem 2rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--line);
+}
+.writing-item time { padding-top: 0.35rem; font-size: 0.9rem; color: var(--text-dim); }
+.writing-item h3 {
+    font-family: var(--font-display);
+    word-spacing: 0.12em;
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+.writing-item h3 a { color: var(--text); text-decoration: none; transition: color var(--t-fast); }
+.writing-item h3 a::after { content: ''; position: absolute; inset: 0; }
+.writing-item:hover h3 a, .writing-item h3 a:focus-visible { color: var(--accent); }
+.writing-item p { margin-top: 0.5rem; max-width: 62ch; color: var(--text-dim); }
+.writing-all { margin-top: 2.5rem; }
+@media (max-width: 640px) {
+    .writing-item { grid-template-columns: 1fr; }
+    .writing-item time { padding-top: 0; }
+}
+
+/* Off-screen sections skip style, layout and paint until they near the
+   viewport; "auto" remembers each one's real height once it has rendered. */
+.section { content-visibility: auto; contain-intrinsic-size: auto 1000px; }
 
 .section-head {
     display: flex;

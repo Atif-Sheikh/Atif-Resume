@@ -159,6 +159,10 @@ export default function SiteEffects() {
         addEventListener('scroll', scrollHandler, { passive: true });
         addEventListener('resize', resizeHandler, { passive: true });
         addEventListener('load', loadHandler);
+        // Sections use content-visibility:auto, so their real heights arrive as
+        // they render; re-cache the offsets whenever the page height changes.
+        const heightObserver = new ResizeObserver(resizeHandler);
+        heightObserver.observe(document.body);
         measure();
         onScroll();
 
@@ -166,6 +170,7 @@ export default function SiteEffects() {
             removeEventListener('scroll', scrollHandler);
             removeEventListener('resize', resizeHandler);
             removeEventListener('load', loadHandler);
+            heightObserver.disconnect();
             clearTimeout(resizeT);
         });
 

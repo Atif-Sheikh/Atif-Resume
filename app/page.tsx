@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Impact from '@/components/Impact';
+import LatestPosts from '@/components/LatestPosts';
 import Marquee from '@/components/Marquee';
 import Projects from '@/components/Projects';
 import Reviews from '@/components/Reviews';
@@ -118,6 +119,7 @@ export default function Page() {
                 <Experience />
                 <Education />
                 <Reviews />
+                <LatestPosts />
                 <Contact />
             </main>
 

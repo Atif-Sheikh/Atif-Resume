@@ -8,8 +8,14 @@ import SectionHead from './SectionHead';
 
 type Review = (typeof REVIEWS)[number] & { id: number };
 
-// Animation + layout features load after hydration; the SSR'd cards don't wait on them.
-const loadFeatures = () => import('framer-motion').then((mod) => mod.domMax);
+// Animation + layout features load once the browser is idle after load, so they
+// never compete with first paint; the SSR'd cards render without them meanwhile.
+const loadFeatures = () =>
+    new Promise<void>((resolve) =>
+        'requestIdleCallback' in window ? requestIdleCallback(() => resolve(), { timeout: 4000 }) : setTimeout(resolve, 2000),
+    )
+        .then(() => import('./motion-features'))
+        .then((mod) => mod.default);
 
 const PROFILE = 'https://www.fiverr.com/atifengrr';
 const PAGE = 9;
