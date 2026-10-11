@@ -14,7 +14,7 @@ import Reviews from '@/components/Reviews';
 import Services from '@/components/Services';
 import SiteEffects from '@/components/SiteEffects';
 import Stack from '@/components/Stack';
-import { SITE } from '@/lib/site';
+import { SAME_AS, SITE } from '@/lib/site';
 
 const JSON_LD = {
     '@context': 'https://schema.org',
@@ -59,15 +59,7 @@ const JSON_LD = {
                 'Ruby on Rails', 'GraphQL', 'Firebase', 'Google Cloud Platform',
                 'Docker', 'Kubernetes', 'Puppeteer', 'Web Scraping', 'JavaScript', 'TypeScript',
             ],
-            sameAs: [
-                'https://github.com/atif-sheikh',
-                'https://linkedin.com/in/muhammadatif007',
-                'https://twitter.com/AtifSiddiqui55',
-                'https://instagram.com/iamatifsiddiqui/',
-                'https://www.facebook.com/king.atif.52',
-                'https://www.upwork.com/freelancers/~01e5b356a9c3a67e23',
-                'https://www.fiverr.com/atifengrr',
-            ],
+            sameAs: SAME_AS,
         },
         {
             '@type': 'WebSite',

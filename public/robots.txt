@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# Next.js page payloads (/index.txt, /blog/<post>.txt) duplicate the HTML pages.
+Disallow: /*.txt$
+Allow: /llms.txt
 
 Sitemap: https://atifsiddique.com/sitemap.xml

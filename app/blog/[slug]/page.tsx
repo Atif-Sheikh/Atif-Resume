@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import Icon from '@/components/Icon';
 import PostEnhancements from '@/components/PostEnhancements';
 import { formatDate, getPost, getPosts } from '@/lib/blog';
-import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
+import { OG_BASE, SAME_AS, SITE, TWITTER_BASE } from '@/lib/site';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -60,8 +60,18 @@ export default async function BlogPost({ params }: Props) {
                 dateModified: post.updated ?? post.date,
                 keywords: post.tags.join(', '),
                 inLanguage: 'en',
-                image: `${SITE}/og/${post.slug}.png`,
-                author: { '@type': 'Person', '@id': `${SITE}/#person`, name: 'Muhammad Atif', url: `${SITE}/` },
+                image: { '@type': 'ImageObject', url: `${SITE}/og/${post.slug}.png`, width: 1200, height: 630 },
+                // The full Person lives on the homepage; repeated here so the post
+                // carries its own author signals (E-E-A-T) when read on its own.
+                author: {
+                    '@type': 'Person',
+                    '@id': `${SITE}/#person`,
+                    name: 'Muhammad Atif',
+                    url: `${SITE}/`,
+                    image: `${SITE}/assets/profile.jpeg`,
+                    jobTitle: 'Senior Full Stack JavaScript Developer',
+                    sameAs: SAME_AS,
+                },
                 publisher: { '@id': `${SITE}/#person` },
                 isPartOf: { '@id': `${SITE}/blog/#blog` },
             },
@@ -101,7 +111,12 @@ export default async function BlogPost({ params }: Props) {
                             fetchPriority="high"
                         />
                         <p className="blog-meta">
-                            <span>By Muhammad Atif</span>
+                            <span>
+                                By{' '}
+                                <a href="/" rel="author">
+                                    Muhammad Atif
+                                </a>
+                            </span>
                             <time dateTime={post.date}>{formatDate(post.date)}</time>
                             <span>{post.minutes} min read</span>
                         </p>

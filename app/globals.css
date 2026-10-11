@@ -2249,6 +2249,8 @@ section[id], [id]:target { scroll-margin-top: 6.5rem; }
 }
 
 .blog-meta { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; font-size: 0.85rem; color: var(--text-dim); }
+.blog-meta a { color: var(--text); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.blog-meta a:hover { color: var(--accent); }
 .blog-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; }
 .blog-tags li {
     padding: 0.2rem 0.65rem;

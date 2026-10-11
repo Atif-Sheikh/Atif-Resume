@@ -9,6 +9,17 @@ const IMAGE = {
     alt: 'Portrait of Muhammad Atif (Atif Siddique), software developer',
 };
 
+// Profiles that identify the same person, for Person.sameAs in JSON-LD.
+export const SAME_AS = [
+    'https://github.com/atif-sheikh',
+    'https://linkedin.com/in/muhammadatif007',
+    'https://twitter.com/AtifSiddiqui55',
+    'https://instagram.com/iamatifsiddiqui/',
+    'https://www.facebook.com/king.atif.52',
+    'https://www.upwork.com/freelancers/~01e5b356a9c3a67e23',
+    'https://www.fiverr.com/atifengrr',
+];
+
 export const OG_BASE = { siteName: 'Muhammad Atif', locale: 'en_US', images: [IMAGE] };
 
 export const TWITTER_BASE = {

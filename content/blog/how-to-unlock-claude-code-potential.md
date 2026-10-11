@@ -7,7 +7,7 @@ tags: Claude Code, AI coding, Developer productivity
 
 Most developers I talk to use Claude Code like a smarter autocomplete that lives in the terminal. They type a request, accept whatever comes back, and decide it is either magic or useless depending on the day.
 
-Both reactions miss the point. Claude Code is an agent: it reads your files, runs commands, checks its own output and keeps going. How good it is depends far more on the setup around it than on the prompt you type. The same model that writes a sloppy patch in a bare repo will write careful, tested code in a repo that tells it how the project works and gives it a way to prove the change is right.
+Both reactions miss the point. [Claude Code](https://code.claude.com/docs/en/overview) is an agent: it reads your files, runs commands, checks its own output and keeps going. How good it is depends far more on the setup around it than on the prompt you type. The same model that writes a sloppy patch in a bare repo will write careful, tested code in a repo that tells it how the project works and gives it a way to prove the change is right.
 
 I have been shipping web apps, React Native apps and large scrapers for over nine years, and I now use Claude Code daily, including to rebuild this very site on Next.js. These are the habits that made the biggest difference, roughly in the order I would adopt them.
 
@@ -181,3 +181,5 @@ Once the setup above is in place, Claude Code stops being something you have to 
 5. Commit, `/clear`, and start the next task fresh.
 
 Claude Code does not replace knowing what good software looks like. It multiplies it. The developers getting the most out of it are not writing cleverer prompts. They are giving the agent the same things a strong new hire needs: context, a plan, a definition of done and a way to check the work.
+
+Still deciding whether Claude Code is the right tool for you? I compared it with the alternatives in [Claude Code vs Cursor vs GitHub Copilot](/blog/claude-code-vs-cursor-vs-github-copilot).

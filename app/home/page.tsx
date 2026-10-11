@@ -11,7 +11,7 @@ import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 const URL = `${SITE}/home.html`;
 const TITLE = `Résumé | Muhammad Atif, ${HEADLINE}`;
 const DESCRIPTION =
-    'Résumé of Muhammad Atif (Atif Siddique), Senior Frontend Lead in Karachi with 8+ years building production web and mobile apps in React, TypeScript and React Native.';
+    'Résumé of Muhammad Atif (Atif Siddique), Senior Frontend Lead in Karachi with 8+ years building web and mobile apps in React, TypeScript and React Native.';
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -34,9 +34,35 @@ const average = (REVIEWS.reduce((s, r) => s + r.rating, 0) / REVIEWS.length).toF
 
 const external = (href: string) => (href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {});
 
+// The Person itself is defined on the homepage; this page is about that Person.
+const JSON_LD = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': `${URL}#webpage`,
+            url: URL,
+            name: TITLE,
+            description: DESCRIPTION,
+            inLanguage: 'en',
+            isPartOf: { '@id': `${SITE}/#website` },
+            about: { '@id': `${SITE}/#person` },
+            mainEntity: { '@id': `${SITE}/#person` },
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+                { '@type': 'ListItem', position: 2, name: 'Résumé', item: URL },
+            ],
+        },
+    ],
+};
+
 export default function Resume() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
             <a href="#main" className="skip-link">
                 Skip to content
             </a>

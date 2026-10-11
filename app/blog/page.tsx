@@ -8,7 +8,7 @@ import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 // Trailing slash: the build moves this page to out/blog/index.html, because
 // GitHub Pages redirects /blog to /blog/ once the blog/ folder of posts exists.
 const URL = `${SITE}/blog/`;
-const TITLE = 'Blog | Muhammad Atif Siddique';
+const TITLE = 'Blog: AI Coding, React and Web Scraping | Muhammad Atif';
 const DESCRIPTION =
     'Notes from 9+ years of shipping software: AI-assisted development, React, React Native, Node.js and large-scale web scraping, by Muhammad Atif.';
 
@@ -35,6 +35,8 @@ export default function Blog() {
             headline: p.title,
             url: `${SITE}/blog/${p.slug}`,
             datePublished: p.date,
+            image: `${SITE}/og/${p.slug}.png`,
+            author: { '@id': `${SITE}/#person` },
         })),
     };
 
@@ -57,7 +59,7 @@ export default function Blog() {
                 </header>
 
                 <ul className="blog-grid">
-                    {posts.map((p) => (
+                    {posts.map((p, i) => (
                         <li key={p.slug}>
                             <article className="blog-card">
                                 <img
@@ -66,7 +68,9 @@ export default function Blog() {
                                     alt={`Cover image for ${p.title}`}
                                     width={1200}
                                     height={630}
-                                    loading="lazy"
+                                    // The first cover is the likely LCP element, so it isn't lazy.
+                                    loading={i ? 'lazy' : 'eager'}
+                                    fetchPriority={i ? undefined : 'high'}
                                     decoding="async"
                                 />
                                 <div className="blog-card-body">

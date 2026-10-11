@@ -162,3 +162,5 @@ If you use more than one, keep project rules in one place. Cursor and Copilot ca
 There is no single winner in 2026, only a best fit for how you like to work. **Copilot** is the cheapest and least disruptive way to add AI to the editor you already use. **Cursor** is the best place to write code by hand with AI alongside you. **Claude Code** is the strongest choice when you want to delegate real work and review the result, and it is the one I would pick if I could keep only one.
 
 Pricing and features in this post were checked against each vendor's official pages in October 2026. All three ship changes every few weeks, so check the current plans before you buy.
+
+**Sources:** [GitHub Copilot plans](https://github.com/features/copilot/plans), [Copilot's move to usage-based billing](https://github.blog/changelog/2026/04/27/github-copilot-is-moving-to-usage-based-billing/), [Cursor pricing](https://cursor.com/pricing), [Cursor pricing docs](https://cursor.com/docs/account/pricing), [Claude pricing](https://claude.com/pricing) and the [Claude Code overview](https://code.claude.com/docs/en/overview).
